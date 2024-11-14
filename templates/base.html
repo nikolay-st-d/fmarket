@@ -1,13 +1,133 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmer's Market</title>
-    <meta name="description" content="Find good food in the farmers market platform.">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Farmer's Market</title>
+        <meta
+            name="description"
+            content="Find good food in the farmers market platform."
+        />
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    </head>
+    <body>
+        <header style="background-image: url({% static 'img/header-bg.webp' %})">
+            <a href="{% url 'index' %}"
+                ><img
+                    class="logo"
+                    src="{% static 'img/fm-logo.png' %}"
+                    alt="logo"
+            /></a>
+            <div class="header-right">
+                <p>USER: Guest</p>
+                <div class="header-links">
+                    <a href="#" title="Create Account">Login</a>
+                    <a href="#" title="Create Account">Register</a>
+                    <a href="#" title="Create Account">My Profile</a>
+                </div>
+                <p>Login to see the FM special offers.</p>
+            </div>
+        </header>
+        <nav>
+            <a href='#'>Home</a>
+            <a href='#'>Offers</a>
+            <a href='#'>Special Offers</a>
+            <a href='#'>Sellers</a>
+            <a href='#'>Search</a>
+        </nav>
+        <main>
+            <h1>{{ h1 }}</h1>
+            <h2>{{ h2 }}</h2>
+            <p>
+                <strong>Buyers:</strong> Browse the offers to find your favorite taste. Offers from EU only, quality guaranteed by our highly rated farmers.
+            </p>
+            <p>
+                <strong>Sellers:</strong> Sell your production to connaisseurs in the EU. High level restaurants and gourmet people need your high quality products!
+            </p>
+            <section class="offers-wrapper">
+                <div class="offer-wrapper">
+                    <h3>Pork Salami</h3>
+                    <div class="offer-img-wrapper">
+                        <img
+                            src="{% static 'mediafiles/user-product-pk.jpg' %}"
+                            alt="product-title"
+                        />
+                    </div>
+                    <div class="offer-details">
+                        <p>Seller: <strong>Marco Barculli</strong></p>
+                        <p>Country: <strong>Italy</strong></p>
+                        <p>Price: <strong>€40.00/kg</strong></p>
+                    </div>
+                    <p>
+                        Salami is a salume consisting of fermented and air-dried
+                        meat, typically pork. Historically, salami was popular
+                        among Southern, Eastern, and Central European peasants
+                        because it can be stored at room temperature for up
+                    </p>
+                </div>
+
+                <div class="offer-wrapper">
+                    <h3>Pickled Garlic</h3>
+                    <div class="offer-img-wrapper">
+                        <img
+                            src="{% static 'mediafiles/pickled-garlic.jpg' %}"
+                            alt="product-title"
+                        />
+                    </div>
+                    <div class="offer-details">
+                        <p>Seller: <strong>Jean le Renard</strong></p>
+                        <p>Country: <strong>France</strong></p>
+                        <p>Price: <strong>€110.00/kg</strong></p>
+                    </div>
+                    <p>
+                        It's back! Original Pickled Garlic from the new crops!
+                        Amazing flavor that you expect from Jean le Renard - proucing Garlic since 1988!
+                    </p>
+                </div>
+
+                <div class="offer-wrapper">
+                    <h3>Tomme de Brebis</h3>
+                    <div class="offer-img-wrapper">
+                        <img
+                            src="{% static 'mediafiles/tomme-de-brebis.jpg' %}"
+                            alt="product-title"
+                        />
+                    </div>
+                    <div class="offer-details">
+                        <p>Seller: <strong>Guillaume Gadou</strong></p>
+                        <p>Country: <strong>France</strong></p>
+                        <p>Price: <strong>€45.00/kg</strong></p>
+                    </div>
+                    <p>
+                        Tomme de Brebis cheese aged 6 months in the French Pirenees mountains. Great flavour and taste!
+                    </p>
+                </div>
+
+                <div class="offer-wrapper">
+                    <h3>Fresh Fennel</h3>
+                    <div class="offer-img-wrapper">
+                        <img
+                            src="{% static 'mediafiles/fennel.jpg' %}"
+                            alt="product-title"
+                        />
+                    </div>
+                    <div class="offer-details">
+                        <p>Seller: <strong>Emilio Zafra Rojas</strong></p>
+                        <p>Country: <strong>Spain</strong></p>
+                        <p>Price: <strong>€23.00/kg</strong></p>
+                    </div>
+                    <p>
+                        BIO Fresh Fennel for soups and salads, produced with all natural means. Jucy and rich flavoured, from North Spain, region of Pamplona.
+                    </p>
+                </div>
+
+            </section>
+        </main>
+        <footer>
+            <p>© 2024 The Farmer's Market Project</p>
+            <p>website crafted by: Nikolay Dimitrov</p>
+        </footer>
+    </body>
 </html>

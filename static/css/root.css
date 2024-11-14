@@ -1,80 +1,65 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css");
 
-
-:root {
-  --main-dark-color: #fec600;
-  --main-dark-color-50: #fcf0c5;
-  --footer-bg-color: #fefcf5;
-  --promo-bg-color: #fff9ef;
-  --promo-fg-color: #000000;
-  --promo-title-color: #ff6803;
-  --discount-percent-box: #ff9900;
-  --main-text-link: #145cad;
-  --main-text-link-hover: #ec8a19;
-  --black: #000000;
-  --grey: #a1a1a1;
-  --white: #ffffff;
-  --footer-links: #786c47;
-}
-
 html {
-  font-family: "Open Sans", Verdana, sans-serif;
-  font-size: 17px;
-  color: #666666;
+  font-family: "Gelasio", Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #2c2c2c;
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
 @media (min-width: 420px) {
   html {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 @media (min-width: 1200px) {
   html {
-    font-size: 19px;
+    font-size: 18px;
   }
 }
 body {
-  background-color: #aec582;
+  background-color: #f3fae7;
+  width: 100%;
 }
+
 ::placeholder {
   font-weight: 300;
 }
 
 h1 {
   font-size: 1.6em;
-  font-weight: 300;
-  color: black;
+  font-weight: 700;
+  color: rgb(47, 117, 0);
   margin-top: 1em;
   margin-bottom: 0.4em;
 }
 h2 {
   font-size: 1.4em;
-  font-weight: 300;
-  color: black;
+  font-weight: 400;
+  color: rgb(49, 49, 49);
   margin-top: 1em;
   margin-bottom: 0.4em;
 }
 h3 {
-  font-size: 1.8em;
-  font-weight: 300;
-  color: black;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: rgb(49, 49, 49);
   text-align: left;
-  margin-top: 1em;
-  margin-bottom: 0.4em;
 }
 h4 {
   font-size: 1.4em;
-  font-weight: 300;
-  color: black;
+  font-weight: 400;
   margin-top: 1.2em;
   margin-bottom: 0.5em;
+  color: rgb(49, 49, 49);
 }
 h5 {
   font-size: 1.2em;
   font-weight: 400;
-  color: #666666;
+  color: rgb(49, 49, 49);
   margin-top: 1.2em;
   margin-bottom: 0.4em;
 }
@@ -85,9 +70,6 @@ h5 {
   h2 {
     font-size: 1.5em;
   }
-}
-p {
-  margin-bottom: 1.1em;
 }
 select {
   color: #666666;
@@ -107,18 +89,4 @@ ul {
   margin-block-start: 0.4em;
   padding-inline-start: 2.2ch;
   list-style-type: disc;
-}
-
-.container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.4em;
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
