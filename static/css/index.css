@@ -1,0 +1,13 @@
+.headings {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.headings p {
+    width: 50%;
+    padding: 0.4em 0.6em;
+    color: rgb(2, 109, 64);
+    border: 1px solid rgb(138, 221, 163);
+    border-radius: 0.4em;
+}

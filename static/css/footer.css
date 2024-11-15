@@ -1,7 +1,7 @@
 footer {
     font-family: "Open Sans", Verdana, sans-serif;
     text-align: center;
-    color: rgb(132, 165, 135);
+    color: rgb(163, 204, 167);
     background-color: rgb(32, 61, 42);
     padding: 1em 0.2em;
     width: 100%;
@@ -10,6 +10,6 @@ footer p {
     font-size: 0.8em;
 }
 footer p:last-of-type {
-    color: rgb(104, 136, 107);
+    color: rgb(119, 155, 123);
     font-size: 0.7em;
 }

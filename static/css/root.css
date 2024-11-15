@@ -7,8 +7,6 @@ html {
   font-size: 16px;
   line-height: 1.4;
   color: #2c2c2c;
-  scroll-behavior: smooth;
-  box-sizing: border-box;
 }
 @media (min-width: 420px) {
   html {
@@ -21,7 +19,7 @@ html {
   }
 }
 body {
-  background-color: #f3fae7;
+  background-color: #fafff1;
   width: 100%;
 }
 
@@ -39,7 +37,7 @@ h1 {
 h2 {
   font-size: 1.4em;
   font-weight: 400;
-  color: rgb(49, 49, 49);
+  color: rgb(36, 105, 36);
   margin-top: 1em;
   margin-bottom: 0.4em;
 }

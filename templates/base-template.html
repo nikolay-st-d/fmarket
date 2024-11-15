@@ -11,20 +11,19 @@
             content="Find good food in the farmers market platform."
         />
         <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-        <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}" />
     </head>
     <body>
         <header style="background-image: url({% static 'img/header-bg.webp' %})">
-            <a href="/" title="Farmers Market - Farm Products Marketplace"
+            <a href="{% url 'index' %}" title="Farmers Market - Farm Products Marketplace"
                 ><img
                     class="logo"
                     src="{% static 'img/fm-logo.png' %}"
                     alt="logo"
             /></a>
             <div class="header-right">
-                <p>USER: {{ request.user }}</p>
+                <p>USER: Guest</p>
                 <div class="header-links">
-                    <a href="accounts/login/" title="Login">Login</a>
+                    <a href="#" title="Login">Login</a>
                     <a href="#" title="Create Account">Register</a>
                     <a href="#" title="Profile Details">My Profile</a>
                 </div>
@@ -32,18 +31,14 @@
             </div>
         </header>
         <nav>
-            <a href='#' title='Farmers Market home'><i class="fa-solid fa-house-chimney"></i></a>
+            <a href='{% url 'index' %}' title='Farmers Market home'><i class="fa-solid fa-house-chimney"></i></a>
             <a href='#' title='Offers'>Offers</a>
             <a href='#' title='Special Offers'>Special Offers</a>
             <a href='#' title='Sellers'>Sellers</a>
             <a href='#' title='Search'>Search</a>
         </nav>
         <main>
-        
-            {% block content %}
-            {% endblock %}
-        
-            <h1>Farmer's Market</h1>
+            <h1>{{ h1 }}</h1>
             <div class="headings">
                 <p>
                     <strong>CLIENTS:</strong> Browse the offers to find your favorite taste. Offers from EU only, quality guaranteed by our highly rated farmers.
@@ -52,7 +47,7 @@
                     <strong>FARMERS:</strong> Sell your products to connaisseurs in the EU. Demanding restaurants and gourmet people need your high quality products!
                 </p>
             </div>
-            <h2>Pure and tasty farmer's food and other farm products for your family.</h2>
+            <h2>{{ h2 }}</h2>
             <section class="offers-wrapper">
                 <div class="offer-wrapper">
                     <h3>Pork Salami</h3>

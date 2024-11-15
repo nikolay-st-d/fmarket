@@ -8,15 +8,17 @@ nav {
 
 nav a {
     display: inline-block;
-    padding: 0.4em 0.6em 0.2em 0.6em;
+    padding: 0.3em 0.8em 0.2em 0.8em;
     text-decoration: none;
     letter-spacing: 0.05em;
-    background-color: darkolivegreen;
+    background-color: #204606;
+    border-top: 1px solid #204606;
     color: white;
     border-bottom-left-radius: 0.6em;
     border-bottom-right-radius: 0.6em;
     transition: 0.3s ease;
 }
 nav a:hover {
-    background-color: rgb(121, 148, 75);
+    border-top: 1px solid rgb(160, 252, 2);
+    background-color: #5a8516;
 }

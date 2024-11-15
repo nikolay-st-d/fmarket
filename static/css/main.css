@@ -5,10 +5,10 @@ main {
 }
 main p {
     max-width: 70ch;
-    margin-bottom: 0.4em;
   }
 .offers-wrapper {
     display: flex;
+    justify-content: center;
     gap: 1em;
     flex-wrap: wrap;
     margin: 2em 0;
@@ -18,7 +18,7 @@ main p {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 0.6em;
+    padding: 0.6em 0.5em 0.3em 0.5em;
     border: 1px solid rgb(175, 175, 175);
     border-radius: 0.8em;
     width: 280px;
@@ -34,19 +34,75 @@ main p {
 .offer-img-wrapper {
     object-fit: cover;
     margin: 0 auto;
+    position: relative;
+}
+.offer-badge {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    z-index: 100;
+    padding: 0.5em 0.4em 0.4em 0.4em;
+    border-radius: 50%;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    background-color: rgb(1, 204, 1);
+    border: 2px solid white;
 }
 .offer-img-wrapper img {
     object-fit: cover;
-    width: 250px;
-    height: 250px;
+    width: 14.5em;
+    height: 14.5em;
     border-radius: 0.4em;
     overflow: hidden;
+    transition: 0.3s ease;
+}
+.offer-img-wrapper img:hover {
+    transform: scale(1.06);
 }
 .offer-details {
-    margin: 0.6em 0;
+    width: 100%;
     font-weight: 400;
-    background-color: rgb(239, 253, 238);
+    margin-top: 1em;
     padding: 0.3em 0.8em;
-    border: 1px solid rgb(178, 224, 178);
     border-radius: 0.4em;
+}
+.offer-details a {
+    font-weight: 700;
+    text-decoration: none;
+    color: rgb(0, 104, 43);
+}
+.offer-details a:hover {
+    color: rgb(17, 96, 187);
+}
+.form-container {
+    font-family: "Open Sans", Verdana, sans-serif;
+    width: 100%;
+    margin: 3em 0;
+}
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.6em;
+}
+.form-container form input,
+.form-container form textarea {
+    padding: 0.3em 0.6em;
+    border: 1px solid green;
+    border-radius: 0.4em;
+    outline: none;
+}
+.form-container form button {
+    padding: 0.3em 0.6em;
+    border: 1px solid green;
+    border-radius: 0.4em;
+    color: green;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.form-container form button:hover {
+    background-color: #e4ffc8;
 }

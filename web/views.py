@@ -1,12 +1,5 @@
-from http.client import HTTPResponse
-
-from django.shortcuts import render
-from django.urls import include
+from django.views import generic as views
 
 
-def index(request):
-    context = {
-        "h1": "Farmer's Market",
-        "h2": "Sell or Buy Farmer's pure and tasty food!"
-    }
-    return render(request, 'base.html', context=context)
+class HomePageView(views.TemplateView):
+    template_name = 'base.html'
