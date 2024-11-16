@@ -6,12 +6,24 @@ main {
 main p {
     max-width: 70ch;
   }
+.offers-section {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.regular {
+    color: green;
+}
+.special {
+    color: orange;
+}
 .offers-wrapper {
     display: flex;
     justify-content: center;
     gap: 1em;
     flex-wrap: wrap;
-    margin: 2em 0;
+    margin: 1em 0;
 }
 .offer-wrapper {
     display: flex;
@@ -25,7 +37,7 @@ main p {
     font-size: 0.9em;
     background-color: white;
 }
-.offer-wrapper h3 {
+.offer-wrapper h4 {
     text-align: center;
     font-weight: 400;
     margin: 0.5em 0;
@@ -38,8 +50,6 @@ main p {
 }
 .offer-badge {
     position: absolute;
-    top: 0.5em;
-    left: 0.5em;
     z-index: 100;
     padding: 0.5em 0.4em 0.4em 0.4em;
     border-radius: 50%;
@@ -47,6 +57,16 @@ main p {
     font-weight: 700;
     color: white;
     line-height: 1;
+}
+.discount {
+    top: 0.5em;
+    left: 0.5em;
+    background-color: rgb(255, 129, 3);
+    border: 2px solid white;
+}
+.bio {
+    top: 0.5em;
+    right: 0.5em;
     background-color: rgb(1, 204, 1);
     border: 2px solid white;
 }
@@ -70,39 +90,56 @@ main p {
 }
 .offer-details a {
     font-weight: 700;
-    text-decoration: none;
-    color: rgb(0, 104, 43);
+    text-decoration: underline;
+    color: inherit;
 }
 .offer-details a:hover {
     color: rgb(17, 96, 187);
 }
 .form-container {
     font-family: "Open Sans", Verdana, sans-serif;
-    width: 100%;
-    margin: 3em 0;
+    font-size: 0.9em;
+    width: fit-content;
+    margin: 2em auto;
 }
 .form-container form {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 0.6em;
+    gap: 0.5em;
+}
+.form-container form label,
+.form-container form .helptext {
+    font-size: 0.8em;
+}
+.form-container form label {
+    font-weight: 400;
+    font-size: 1.2em;
+    color: orange;
 }
 .form-container form input,
-.form-container form textarea {
-    padding: 0.3em 0.6em;
+.form-container form textarea,
+.form-container form button {
+    display: block;
+    padding: 0.4em 0.9em;
     border: 1px solid green;
     border-radius: 0.4em;
     outline: none;
 }
 .form-container form button {
-    padding: 0.3em 0.6em;
-    border: 1px solid green;
-    border-radius: 0.4em;
+    width: fit-content;
     color: green;
-    background-color: white;
+    background-color: #f0ffe9;
     cursor: pointer;
     transition: 0.3s ease;
+    margin: 0.5em 0;
 }
 .form-container form button:hover {
-    background-color: #e4ffc8;
+    background-color: #e1ffc2;
+}
+.site-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3em 0;
 }

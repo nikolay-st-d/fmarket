@@ -12,9 +12,13 @@ header {
     flex-wrap: wrap;
     background-color:rgb(101, 139, 56);
     background-size: cover;
-    text-align: center;
     background-repeat: no-repeat;
     background-position: center;
+}
+@media (min-width: 800px) {
+  header {
+    padding: 1em 3em;
+  }
 }
 .logo {
     width: 7em;
@@ -36,7 +40,8 @@ header {
     align-items: flex-end;
     gap: 0.8em;
 }
-.header-right a {
+.header-right a,
+.header-right button {
     display: block;
     padding: 0.2em 0.5em;
     color: rgb(12, 70, 47);
@@ -46,8 +51,10 @@ header {
     border-radius: 0.4em;
     transition: 0.3s ease;
 }
-.header-right a:hover {
+.header-right a:hover,
+.header-right button:hover {
     background-color: rgba(255, 255, 255, 0.9);
     color: rgb(255, 140, 8);
     border-color: rgb(255, 140, 8);
+    cursor: pointer;
 }

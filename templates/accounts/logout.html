@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="site-message">
+        <h3>You've been logged-out!</h3>
+        <p><a href="{% url 'login' %}">Login</a> again for full website experience!</p>
+    </div>
+{% endblock %}

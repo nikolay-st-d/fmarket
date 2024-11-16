@@ -44,14 +44,13 @@ h2 {
 h3 {
   font-size: 1.5em;
   font-weight: 400;
-  color: rgb(49, 49, 49);
   text-align: left;
+  margin-top: 1em;
 }
 h4 {
   font-size: 1.4em;
   font-weight: 400;
-  margin-top: 1.2em;
-  margin-bottom: 0.5em;
+  margin: 1em 0;
   color: rgb(49, 49, 49);
 }
 h5 {
@@ -87,4 +86,13 @@ ul {
   margin-block-start: 0.4em;
   padding-inline-start: 2.2ch;
   list-style-type: disc;
+}
+main a {
+  color: rgb(0, 166, 172);
+  font-weight: 700;
+  text-decoration: none;
+}
+main a:hover {
+  color: rgb(0, 201, 117);
+  text-decoration: underline;
 }
