@@ -70,19 +70,20 @@ class Profile(models.Model):
     )
     first_name = models.CharField(
         max_length=30,
-        null=False,
-        blank=False,
-        help_text='First Name'
+        null=True,
+        blank=True,
     )
     last_name = models.CharField(
         max_length=30,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
     )
     country = models.CharField(
         max_length=2,
         choices=EUCountries.choices,
         default=EUCountries.AUSTRIA,
+        null=True,
+        blank=True,
     )
     phone_number = models.CharField(
         max_length=16,

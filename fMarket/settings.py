@@ -108,6 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 if DEBUG:
     AUTH_PASSWORD_VALIDATORS = []
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -129,3 +130,7 @@ STATICFILES_DIRS = (BASE_DIR / 'static',)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.AccountUser'
+
+LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'index'

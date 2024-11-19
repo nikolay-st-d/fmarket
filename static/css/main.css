@@ -12,12 +12,6 @@ main p {
     flex-direction: column;
     align-items: center;
 }
-.regular {
-    color: green;
-}
-.special {
-    color: orange;
-}
 .offers-wrapper {
     display: flex;
     justify-content: center;
@@ -35,7 +29,13 @@ main p {
     border-radius: 0.8em;
     width: 280px;
     font-size: 0.9em;
+}
+.regular {
     background-color: white;
+}
+.special {
+    background-color: #fff7ec;
+    border-color: orange;
 }
 .offer-wrapper h4 {
     text-align: center;
@@ -105,19 +105,15 @@ main p {
 .form-container form {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
-}
-.form-container form label,
-.form-container form .helptext {
-    font-size: 0.8em;
+    gap: 1em;
 }
 .form-container form label {
     font-weight: 400;
-    font-size: 1.2em;
-    color: orange;
+    color: #757575;
 }
 .form-container form input,
 .form-container form textarea,
+.form-container form select,
 .form-container form button {
     display: block;
     padding: 0.4em 0.9em;
@@ -142,4 +138,22 @@ main p {
     align-items: center;
     justify-content: center;
     padding: 3em 0;
+}
+.site-note {
+    margin: 1.5em 0;
+    color: orange;
+}
+.site-note i {
+    font-size: 1.5em;
+    margin-right: 0.2em;
+}
+.green {
+    color: green;
+}
+.messages {
+    width: fit-content;
+    margin: 1em auto;
+    padding: 1em 2em;
+    border: 2px solid orange;
+    border-radius: 0.5em;
 }

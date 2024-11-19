@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="form-container">
+        {% if not user.profile.first_name or not user.profile.last_name or not user.profile.phone_number %}
+            <p class="site-note"><i class="fa-solid fa-triangle-exclamation"></i> 
+                All fields must be set for full access to site features!</p>
+            {% else %}
+            <p class="site-note green"><i class="fa-solid fa-user"></i> 
+                Your profile is all set. You have access to all site features as customer.</p>
+        {% endif %}
+
+        <form method="post">
+            {{ form }}
+            {% csrf_token %}
+            <button>Update Profile</button>
+        </form>
+    </div>
+{% endblock %}
