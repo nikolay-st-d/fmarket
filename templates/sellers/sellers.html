@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% if object_list %}
+
+        <h3>Sellers</h3>
+        <section class="sellers-section">
+        
+            {% for seller in object_list %}
+                
+                <div class="seller-wrapper">
+                    <h4>{{ seller.name }}</h4>
+
+                    <a href="#" title="Farmer: {{ seller.name }}">
+                        <div class="seller-img-wrapper">
+                            <img
+                                    src="{% static 'media/farmer_001.jpg' %}"
+                                    alt="{{ seller.name }}"
+                            />
+                        </div>
+                    </a>
+                    <div class="seller-details">
+                        <p>Name: {{ seller.profile.profile.first_name }} {{ seller.profile.profile.last_name }}</p>
+                        <p>Country: {{ seller.profile.profile.country }}</p>
+                        <p>Date Joined: {{ seller.profile.date_joined|date:"d M Y" }}</p>
+                        <p>Number of products listed: 20</p>
+                        <p>PK: {{ seller.pk }} (DEBUG!!!)</p>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </section>
+
+    {% endif %}
+
+{% endblock %}

@@ -5,6 +5,7 @@ footer {
     background-color: rgb(32, 61, 42);
     padding: 1em 0.2em;
     width: 100%;
+    min-height: 5vh;
 }
 footer p {
     font-size: 0.8em;

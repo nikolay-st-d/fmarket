@@ -35,33 +35,33 @@ class AccountUser(AbstractBaseUser, PermissionsMixin):
 
 class Profile(models.Model):
     class EUCountries(models.TextChoices):
-        AUSTRIA = 'AT', 'Austria'
-        BELGIUM = 'BE', 'Belgium'
-        BULGARIA = 'BG', 'Bulgaria'
-        CROATIA = 'HR', 'Croatia'
-        REPUBLIC_OF_CYPRUS = 'CY', 'Republic of Cyprus'
-        CZECH_REPUBLIC = 'CZ', 'Czech Republic'
-        DENMARK = 'DK', 'Denmark'
-        ESTONIA = 'EE', 'Estonia'
-        FINLAND = 'FI', 'Finland'
-        FRANCE = 'FR', 'France'
-        GERMANY = 'DE', 'Germany'
-        GREECE = 'GR', 'Greece'
-        HUNGARY = 'HU', 'Hungary'
-        IRELAND = 'IE', 'Ireland'
-        ITALY = 'IT', 'Italy'
-        LATVIA = 'LV', 'Latvia'
-        LITHUANIA = 'LT', 'Lithuania'
-        LUXEMBOURG = 'LU', 'Luxembourg'
-        MALTA = 'MT', 'Malta'
-        NETHERLANDS = 'NL', 'Netherlands'
-        POLAND = 'PL', 'Poland'
-        PORTUGAL = 'PT', 'Portugal'
-        ROMANIA = 'RO', 'Romania'
-        SLOVAKIA = 'SK', 'Slovakia'
-        SLOVENIA = 'SI', 'Slovenia'
-        SPAIN = 'ES', 'Spain'
-        SWEDEN = 'SE', 'Sweden'
+        AUSTRIA = 'Austria', 'Austria'
+        BELGIUM = 'Belgium', 'Belgium'
+        BULGARIA = 'Bulgaria', 'Bulgaria'
+        CROATIA = 'Croatia', 'Croatia'
+        REPUBLIC_OF_CYPRUS = 'Cyprus', 'Republic of Cyprus'
+        CZECH_REPUBLIC = 'Czech Republic', 'Czech Republic'
+        DENMARK = 'Denmark', 'Denmark'
+        ESTONIA = 'Estonia', 'Estonia'
+        FINLAND = 'Finland', 'Finland'
+        FRANCE = 'France', 'France'
+        GERMANY = 'Germany', 'Germany'
+        GREECE = 'Greece', 'Greece'
+        HUNGARY = 'Hungary', 'Hungary'
+        IRELAND = 'Ireland', 'Ireland'
+        ITALY = 'Italy', 'Italy'
+        LATVIA = 'Latvia', 'Latvia'
+        LITHUANIA = 'Lithuania', 'Lithuania'
+        LUXEMBOURG = 'Luxembourg', 'Luxembourg'
+        MALTA = 'Malta', 'Malta'
+        NETHERLANDS = 'Netherlands', 'Netherlands'
+        POLAND = 'Poland', 'Poland'
+        PORTUGAL = 'Portugal', 'Portugal'
+        ROMANIA = 'Romania', 'Romania'
+        SLOVAKIA = 'Slovakia', 'Slovakia'
+        SLOVENIA = 'Slovenia', 'Slovenia'
+        SPAIN = 'Spain', 'Spain'
+        SWEDEN = 'Sweden', 'Sweden'
 
     user = models.OneToOneField(
         to=AccountUser,
@@ -79,7 +79,7 @@ class Profile(models.Model):
         blank=True,
     )
     country = models.CharField(
-        max_length=2,
+        max_length=15,
         choices=EUCountries.choices,
         default=EUCountries.AUSTRIA,
         null=True,
@@ -92,4 +92,7 @@ class Profile(models.Model):
         ),
         null=True,
         blank=True,
+    )
+    is_seller = models.BooleanField(
+        default=False,
     )

@@ -1,0 +1,21 @@
+.product-details-section {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: 1em 0;
+}
+.product-details-left {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.product-details-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+.product-description {
+    font-size: 1.1em;
+    margin-top: 1em;
+}

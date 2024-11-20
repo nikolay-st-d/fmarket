@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>{{ object.name }}</h1>
+    <section class="product-details-section">
+
+        <div class="product-details-left">
+            <img
+                    src="{% static 'mediafiles/user-product-pk.jpg' %}"
+                    alt="{{ product.name }}"
+            />
+        </div>
+
+        <div class="product-details-right">
+            <p>Seller: <a href="#" title="{{ product.name }} by {{ product.owner.name }}">{{ product.owner.name }}</a></p>
+            <p>Country: {{ product.owner.profile.profile.country }}</p>
+            <p>Category: <a href="#" title="Category: Meat Products">{{ product.category }}</a></p>
+            <p>Price: &euro;{{ product.price }}/{{ product.qty_units }}</p>
+            
+            <div class="product-description">
+                <p><strong>PRODUCT DESCRIPTION:</strong></p>
+                <p>{{ product.description }}</p>
+            </div>
+        </div>
+
+
+    </section>
+{% endblock %}
