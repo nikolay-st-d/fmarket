@@ -28,7 +28,7 @@ class Product(models.Model):
         CHEESE = 'Cheese', 'Cheese'
 
     name = models.CharField(
-        max_length=60,
+        max_length=40,
         validators=[
             MinLengthValidator(NAME_MIN_LENGTH),
         ],

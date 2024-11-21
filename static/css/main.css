@@ -35,7 +35,7 @@ main p {
     background-color: white;
 }
 .special {
-    background-color: #fff7ec;
+    background-color: #f6ffec;
     border-color: orange;
 }
 .offer-wrapper h4 {
@@ -116,6 +116,7 @@ main p {
 .form-container form textarea,
 .form-container form select,
 .form-container form button {
+    width: 100%;
     display: block;
     padding: 0.4em 0.9em;
     border: 1px solid green;
@@ -128,7 +129,7 @@ main p {
     background-color: #f0ffe9;
     cursor: pointer;
     transition: 0.3s ease;
-    margin: 0.5em 0;
+    margin: 1em 0;
 }
 .form-container form button:hover {
     background-color: #e1ffc2;
@@ -166,7 +167,10 @@ main p {
     justify-content: center;
 }
 .step-links {
-    color: #666666;
+    display: flex;
+    flex-direction: row;
+    gap: 0.6em;
+    justify-content: center;
 }
 .current {
     color: green;

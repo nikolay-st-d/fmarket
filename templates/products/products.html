@@ -10,8 +10,10 @@
 
             {% for product in object_list %}
 
-                <div class="offer-wrapper special">
-                    <h4>{{ product.name }}</h4>
+                <div class="offer-wrapper">
+                    <div class="product-box-title">
+                        <h4>{{ product.name }}</h4>
+                    </div>
                     <div class="offer-img-wrapper">
                         <a href="{% url 'product-details' pk=product.pk %}" title="{{ product.name }}">
                             <img
@@ -20,17 +22,17 @@
                             />
                             {% if product.discount > 0 %}
                                 <div class="offer-badge discount">
-                                    {{ product.discount }}
+                                    {{ product.discount }}%
                                 </div>
                             {% endif %}
                         </a>
                     </div>
                     <div class="offer-details">
-                        <p>Seller: <a href="#"
-                                      title="Farmer Marco Barculli">{{ product.owner.name }}</a>
+                        <p>Seller: <a href="{% url 'seller-details' pk=product.owner.pk %}"
+                                      title="Farmer: {{ product.owner.name }}">{{ product.owner.name }}</a>
                         </p>
                         <p>Country: <strong>{{ product.owner.profile.profile.country }}</strong></p>
-                        <p>Category: <a href="#" title="Category: Meat Products">{{ product.category }}</a></p>
+                        <p>Category: <a href="#" title="Category: {{ product.category }}">{{ product.category }}</a></p>
                         <p>Price: <strong>&euro;{{ product.price }}/{{ product.qty_units }}</strong></p>
                     </div>
                 </div>

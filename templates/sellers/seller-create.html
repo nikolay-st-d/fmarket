@@ -2,12 +2,15 @@
 {% load static %}
 
 {% block content %}
+
+    <h1>Apply for Farmer's Market Seller</h1>
     <div class="form-container">
-        <form method="post">
+
+        <form method="post" enctype="multipart/form-data">
             {{ form }}
             {% csrf_token %}
-            <button>Register</button>
+            <button>Create</button>
         </form>
-    <p>Already have an account? <a href="{% url  'login' %}">LOGIN</a></p>
+    
     </div>
 {% endblock %}

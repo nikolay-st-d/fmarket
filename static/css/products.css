@@ -1,3 +1,9 @@
+.product-box-title {
+    height: 6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .product-details-section {
     display: flex;
     flex-direction: row;
@@ -10,12 +16,18 @@
     flex-direction: column;
     gap: 1em;
 }
+.product-details-left img {
+    border: 1px solid lightgray;
+    border-radius: 0.4em;
+    overflow: hidden;
+}
 .product-details-right {
     display: flex;
     flex-direction: column;
     gap: 0.3em;
 }
 .product-description {
-    font-size: 1.1em;
     margin-top: 1em;
+    max-width: 66ch;
+    text-wrap: balance;
 }

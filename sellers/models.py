@@ -18,7 +18,7 @@ class Seller(models.Model):
         blank=True,
     )
     photo = models.ImageField(
-        upload_to='sellers',
+        upload_to='sellers/',
         null=True,
         blank=True,
     )

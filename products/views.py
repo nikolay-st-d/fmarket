@@ -5,6 +5,7 @@ from products.models import Product
 class ProductsListView(views.ListView):
     model = Product
     template_name = 'products/products.html'
+    ordering = '-id'
     paginate_by = 4  # TODO: set this for production
 
 
