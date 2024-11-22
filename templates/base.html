@@ -28,11 +28,16 @@
                 {% csrf_token %}
                 <button type="submit">Logout</button>
             </form>
-            <p>User: {{ request.user.email }}</p>
+            <p><i class="fa-solid fa-user"></i> User: {{ request.user.email }}</p>
             <div class="header-links">
                 <a href="{% url 'edit-user' pk=request.user.pk %}" title="Profile Details">My Profile</a>
                 <a href="{% url 'password-change' %}" title="Change Password">Change Password</a>
             </div>
+            {% if not seller_pk %}
+                <div class="header-links">
+                    <a href="{% url 'seller-create' %}" title="Profile Details">Apply for Seller</a>
+                </div>
+            {% endif %}
         {% else %}
             <div class="header-links">
                 <a href="{% url 'login' %}" title="Login">Login</a>
@@ -40,17 +45,21 @@
             </div>
         {% endif %}
 
-
     </div>
 </header>
 <nav>
     <a href='{% url 'index' %}' title='Farmers Market home'><i class="fa-solid fa-house-chimney"></i></a>
+
     {% if request.user.profile %}
         <a href='#' title='Special Offers'>Special Offers</a>
     {% endif %}
+
     <a href='{% url 'products' %}' title='All Offers'>Offers</a>
-    <a href='{% url 'sellers' %}' title='Sellers'>Sellers</a>
+    <a href='{% url 'sellers' %}' title='Farmers'>Farmers</a>
     <a href='#' title='Search'>Search</a>
+    {% if seller_pk %}
+        <a class="dashboard-button" href="{% url 'dashboard' pk=seller_pk %}" title="Dashboard">Dashboard</a>
+    {% endif %}
 </nav>
 <main>
 

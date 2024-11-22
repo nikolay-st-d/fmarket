@@ -1,6 +1,6 @@
 nav {
     font-weight: 700;
-    font-size: 1.2em;
+    font-size: 1.1em;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -21,5 +21,8 @@ nav a {
 }
 nav a:hover {
     border-top: 1px solid rgb(160, 252, 2);
-    background-color: #5a8516;
+    background-color: #3f930e;
+}
+.dashboard-button {
+    background-color: rgb(57, 197, 0);
 }

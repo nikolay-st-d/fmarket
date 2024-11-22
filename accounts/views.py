@@ -57,7 +57,8 @@ class UserPasswordResetView(auth_views.PasswordResetView):
     template_name = 'accounts/password-reset.html'
 
 
-# TODO: have to check these 3 on production
+# TODO: Have to check the following 3 classes in production.
+# TODO: These will probably need SMTP server setup to work
 class UserPasswordResetDoneView(auth_views.PasswordResetDoneView):
     template_name = 'accounts/account.html'
     success_url = reverse_lazy('password_reset_done')

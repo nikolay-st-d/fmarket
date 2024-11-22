@@ -7,6 +7,7 @@ from sellers.models import Seller
 
 class Product(models.Model):
     NAME_MIN_LENGTH = 12
+    NAME_MAX_LENGTH = 40
     DESCRIPTION_MIN_LENGTH = 120
 
     class QtyUnits(models.TextChoices):
@@ -28,7 +29,7 @@ class Product(models.Model):
         CHEESE = 'Cheese', 'Cheese'
 
     name = models.CharField(
-        max_length=40,
+        max_length=NAME_MAX_LENGTH,
         validators=[
             MinLengthValidator(NAME_MIN_LENGTH),
         ],

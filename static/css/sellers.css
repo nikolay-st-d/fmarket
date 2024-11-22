@@ -55,3 +55,18 @@
 .seller-details a:hover {
     color: rgb(17, 96, 187);
 }
+.seller-header-wrapper {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+.photo-round-small {
+    object-fit: cover;
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid lightgray;
+}

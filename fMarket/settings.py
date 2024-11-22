@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     "web.apps.WebConfig",
     "accounts.apps.AccountsConfig",
     "sellers.apps.SellersConfig",
-    "products.apps.ProductsConfig"
+    "products.apps.ProductsConfig",
+    "photos.apps.PhotosConfig"
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'fMarket.context_processors.seller_pk',
             ],
         },
     },

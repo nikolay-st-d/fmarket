@@ -2,15 +2,25 @@
 {% load static %}
 
 {% block content %}
+    {% if user.is_authenticated and seller_pk == object.pk %}
+        <div class="seller-header-wrapper">
+            <h1>Edit Farmer Details</h1>
+            <img class="photo-round-small" src="{{ object.photo.url }}" alt="">
+            <p>Farmer: <strong>{{ object.name }}</strong></p>
+        </div>
 
-    <h1>Edit Seller Details</h1>
-    <div class="form-container">
+        <div class="form-container">
+            <form method="post" enctype="multipart/form-data">
+                {{ form }}
+                {% csrf_token %}
+                <button>Update</button>
+            </form>
+        </div>
+    {% else %}
+        <div class="seller-header-wrapper">
+            <h1>Access Denied</h1>
+        </div>
+        <p>You can edit only your own profile!</p>
+    {% endif %}
 
-        <form method="post" enctype="multipart/form-data">
-            {{ form }}
-            {% csrf_token %}
-            <button>Update</button>
-        </form>
-    
-    </div>
 {% endblock %}

@@ -11,7 +11,10 @@
         </div>
 
         <div class="product-details-right">
-            <p>Country: {{ object.profile.profile.country }}</p>
+        {% if seller_pk == object.pk %}
+            <p><a href="{% url 'seller-update' pk=object.pk %}"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</a></p>
+        {% endif %}
+            <p>Country: {{ object.account.profile.country }}</p>
             <p>City: {{ object.city }}</p>
             <p>Address: {{ object.address }}</p>
             {% if object.website_url %}

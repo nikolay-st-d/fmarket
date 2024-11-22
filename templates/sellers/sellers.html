@@ -7,19 +7,23 @@
 
         <h3>Sellers</h3>
         <section class="sellers-section">
-        
-            {% for seller in object_list %}
-                
-                <div class="seller-wrapper">
-                    <h4>{{ seller.name }}</h4>
 
+            {% for seller in object_list %}
+
+                <div class="seller-wrapper">
+                    {% if request.user.pk == seller.account.profile.pk %}
+                        <h4>{{ seller.name }} <i class="fa-solid fa-user"></i></h4>
+                    {% else %}
+                        <h4>{{ seller.name }}</h4>
+                    {% endif %}
+                
                     <a href="{% url 'seller-details' pk=seller.pk %}" title="Farmer: {{ seller.name }}">
                         <div class="seller-img-wrapper">
                             <img src="{{ seller.photo.url }}" alt="{{ object.name }}">
                         </div>
                     </a>
                     <div class="seller-details">
-                        <p>Country: {{ seller.profile.profile.country }}</p>
+                        <p>Country: {{ seller.account.profile.country }}</p>
                         <p>Date Joined: {{ seller.profile.date_joined|date:"d M Y" }}</p>
                         <p>Number of products listed: {{ seller.products.count }}</p>
                     </div>
@@ -28,7 +32,7 @@
             {% endfor %}
 
         </section>
-        
+
         <div class="pagination">
                 <span class="step-links">
                     {% if page_obj.has_previous %}
@@ -36,10 +40,10 @@
                         <a href="?page={{ page_obj.previous_page_number }}">previous</a>
                     {% endif %}
 
-                <span class="current">
+                    <span class="current">
                         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                 </span>
-                
+
                     {% if page_obj.has_next %}
                         <a href="?page={{ page_obj.next_page_number }}">next</a>
                         <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
