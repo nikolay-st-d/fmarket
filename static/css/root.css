@@ -94,5 +94,4 @@ main a {
 }
 main a:hover {
   color: rgb(0, 201, 117);
-  text-decoration: underline;
 }

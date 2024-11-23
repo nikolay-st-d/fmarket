@@ -65,7 +65,7 @@ class Profile(models.Model):
 
     user = models.OneToOneField(
         to=AccountUser,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
         primary_key=True,
     )
     first_name = models.CharField(

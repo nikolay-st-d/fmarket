@@ -12,11 +12,11 @@
     text-decoration: none;
     display: block;
     padding: 0.5em 1em;
-    background-color: green;
+    background-color: black;
     transition: 0.3s ease;
 }
 .dashboard-menu a:hover {
     color: white;
     text-decoration: none;
-    background-color: #11c011;
+    background-color: #565656;
 }

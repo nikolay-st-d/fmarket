@@ -1,11 +1,13 @@
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy, reverse
-from django.views.generic import UpdateView, CreateView
+from django.views.generic import UpdateView, CreateView, DeleteView
 from accounts.forms import AccountUserCreationForm
 from accounts.models import Profile
+
+UserModel = get_user_model()
 
 
 class LoginUserView(auth_views.LoginView):
@@ -38,6 +40,12 @@ class RegisterUserView(CreateView):
 
     def get_success_url(self):
         return reverse('edit-user', kwargs={'pk': self.object.pk})
+
+
+class DeleteUserView(DeleteView):
+    template_name = 'accounts/delete-user.html'
+    model = UserModel
+    success_url = reverse_lazy('index')
 
 
 class EditProfileView(LoginRequiredMixin, UpdateView):

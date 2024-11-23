@@ -1,10 +1,6 @@
 import os
-from uuid import uuid4
-
-from django.core.validators import MinLengthValidator
 from django.db import models
 from django.utils.text import slugify
-
 from accounts.models import AccountUser
 
 
@@ -26,23 +22,13 @@ class Seller(models.Model):
         null=True,
         blank=True,
     )
-    contact_email = models.EmailField(
-        unique=True
-    )
-    contact_phone = models.CharField(
-        max_length=16,
-        validators=(
-            MinLengthValidator(8),
-        ),
-        unique=True
-    )
     approved = models.BooleanField(
         default=False
     )
     account = models.ForeignKey(
         to=AccountUser,
         related_name='sellers',
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
     )
 
     def save(self, *args, **kwargs):

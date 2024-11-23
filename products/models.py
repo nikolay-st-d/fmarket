@@ -11,11 +11,11 @@ class Product(models.Model):
     DESCRIPTION_MIN_LENGTH = 120
 
     class QtyUnits(models.TextChoices):
-        TON = 'Tons', 'Tons'
-        KG = 'Kg', 'Kilograms'
-        GR = 'Gram', 'Grams'
-        LTR = 'Liters', 'Liters'
-        PCS = 'Pcs', 'Pieces'
+        TON = 'Ton', 'Ton'
+        KG = 'Kg', 'Kilogram'
+        GR = 'Gram', 'Gram'
+        LTR = 'Liter', 'Liter'
+        PCS = 'Pc', 'Piece'
         PACK = 'Pack', 'Package'
 
     class ProductCategories(models.TextChoices):
@@ -82,7 +82,7 @@ class Product(models.Model):
     owner = models.ForeignKey(
         to=Seller,
         related_name='products',
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
     )
 
 

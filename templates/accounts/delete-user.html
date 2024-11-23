@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>DELETE ACCOUNT</h1>
+    <div class="warning">
+    <p>WARNING! You are about to delete your account and all the content associated with this account! The account deletion is irreversible!</p>
+    </div>
+    <div class="form-container">
+        <form method="post">
+            {{ form }}
+            {% csrf_token %}
+                <button>DELETE ACCOUNT</button>
+        </form>
+    </div>
+{% endblock %}
