@@ -5,7 +5,7 @@
     {% if user.is_authenticated and seller_pk == object.pk %}
         <div class="seller-header-wrapper">
             <h1>Edit Farmer Details</h1>
-            <img class="photo-round-small" src="{{ object.photo.url }}" alt="">
+            <img class="photo-round-small" src="{{ object.photo.url }}" alt="{{ object.name }}">
             <p>Farmer: <strong>{{ object.name }}</strong></p>
         </div>
 

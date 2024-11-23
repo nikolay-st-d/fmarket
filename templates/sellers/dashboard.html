@@ -3,11 +3,32 @@
 
 {% block content %}
 
-    <section>
-
-        <h1>DASHBOARD</h1>
-        <p>Profile approval status: <strong>{{ object.approved }}</strong></p>
-        
+    <section class="dashboard">
+    
+        {% if not object.approved %}
+            <h1>DASHBOARD</h1>
+            <p>Your profile is <strong>PENDING APPROVAL</strong>.</p>
+            <p>You cannot use the DASHBOARD until your profile is approved.</p>
+        {% else %}
+            <div class="seller-header-wrapper-dash">
+            <a href="{% url 'seller-details' pk=object.pk %}">
+                <img class="photo-round-small" src="{{ object.photo.url }}" alt="{{ object.name }}">
+            </a>
+            <div>
+                <h1>DASHBOARD</h1>
+                <p>Your profile is <strong>APPROVED</strong>. You have full access as a Farmer's Market seller.</p>
+            </div>
+        </div>
+            
+            <div class="dashboard-menu">
+                <a href="#" title="">MY PRODUCTS</a>
+                <a href="#" title="">ADD PRODUCT</a>
+                <a href="#" title="">MY PHOTOS</a>
+                <a href="#" title="">ADD PHOTO</a>
+                <a href="#" title="">CONTACT ADMINS</a>
+                <a href="#" title="">HELP</a>
+            </div>
+        {% endif %}
 
     </section>
 
