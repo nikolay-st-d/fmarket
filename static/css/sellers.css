@@ -58,14 +58,16 @@
 .seller-header-wrapper {
     margin: 1em 0;
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
     justify-content: center;
     align-items: center;
-    gap: 2em;
 }
 .seller-header-wrapper-dash {
     display: flex;
     flex-direction:row;
+    flex-wrap: wrap;
     justify-content: left;
     align-items: center;
     gap: 1em;
@@ -81,4 +83,41 @@
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid lightgray;
+}
+
+.seller-details-section {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: 1em 0;
+}
+.seller-details-left {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.seller-details-left img {
+    border: 1px solid lightgray;
+    border-radius: 0.4em;
+    overflow: hidden;
+}
+.seller-details-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+.seller-details-link {
+    width: fit-content;
+    display: block;
+    padding: 0.5em 1em;
+    margin: 1em auto;
+    background-color: #067e00;
+    color: white;
+    border-radius: 0.4em;
+}
+.seller-description {
+    margin-top: 1em;
+    max-width: 66ch;
+    text-wrap: balance;
 }

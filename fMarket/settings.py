@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'fMarket.context_processors.seller_pk',
                 'fMarket.context_processors.account_complete',
+                'fMarket.context_processors.site_stats',
             ],
         },
     },

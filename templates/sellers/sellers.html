@@ -5,7 +5,7 @@
 
     {% if object_list %}
 
-        <h3>Sellers</h3>
+        <h1>Farmers</h1>
         <section class="sellers-section">
 
             {% for seller in object_list %}
@@ -24,7 +24,7 @@
                     </a>
                     <div class="seller-details">
                         <p>Country: {{ seller.account.profile.country }}</p>
-                        <p>Date Joined: {{ seller.profile.date_joined|date:"d M Y" }}</p>
+                        <p>Date Joined: {{ user.date_joined|date:"d M Y" }}</p>
                         <p>Number of products listed: {{ seller.products.count }}</p>
                     </div>
                 </div>

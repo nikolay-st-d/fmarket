@@ -7,5 +7,7 @@ urlpatterns = [
     path('seller/<int:pk>/', include([
         path('', views.SellerDetailsView.as_view(), name='seller-details'),
         path('update/', views.SellerUpdateView.as_view(), name='seller-update'),
+        path('delete/', views.SellerDeleteView.as_view(), name='seller-delete'),
+        path('dashboard/', views.SellerDashboardView.as_view(), name='seller-dashboard'),
     ]))
 ]

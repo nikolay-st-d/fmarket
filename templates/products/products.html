@@ -5,7 +5,7 @@
 
     {% if object_list %}
 
-        <h3>Products</h3>
+        <h1>Products</h1>
         <section class="sellers-section">
 
             {% for product in object_list %}
@@ -28,10 +28,11 @@
                         </a>
                     </div>
                     <div class="offer-details">
-                        <p>Seller: <a href="{% url 'seller-details' pk=product.owner.pk %}"
-                                      title="Farmer: {{ product.owner.name }}">{{ product.owner.name }}</a>
+                        <p>Seller: <a href="{% url 'seller-details' pk=product.seller.pk %}" 
+                                      title="Farmer: {{ product.seller.name }}">
+                            {{ product.seller.name }}</a>
                         </p>
-                        <p>Country: <strong>{{ product.owner.profile.profile.country }}</strong></p>
+                        <p>Country: <strong>{{ product.owner.profile.country }}</strong></p>
                         <p>Category: <a href="#" title="Category: {{ product.category }}">{{ product.category }}</a></p>
                         <p>Price: <strong>&euro;{{ product.price }}/{{ product.qty_units }}</strong></p>
                     </div>
@@ -58,7 +59,8 @@
                     {% endif %}
                 </span>
         </div>
-
+    {% else %}
+        <p>No products listed yet!</p>
     {% endif %}
 
 {% endblock %}

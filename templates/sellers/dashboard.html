@@ -15,18 +15,16 @@
                 <img class="photo-round-small" src="{{ object.photo.url }}" alt="{{ object.name }}">
             </a>
             <div>
-                <h1>DASHBOARD</h1>
-                <p>Your profile is <strong>APPROVED</strong>. You have full access as a Farmer's Market seller.</p>
+                <h1>FARMER DASHBOARD</h1>
+                <p>Your profile is <strong>APPROVED</strong>. You can publish your offers.</p>
             </div>
         </div>
             
             <div class="dashboard-menu">
-                <a href="#" title="">MY PRODUCTS</a>
-                <a href="#" title="">ADD PRODUCT</a>
-                <a href="#" title="">MY PHOTOS</a>
-                <a href="#" title="">ADD PHOTO</a>
-                <a href="#" title="">CONTACT ADMINS</a>
-                <a href="#" title="">HELP</a>
+                <a href="{% url 'seller-details' pk=seller_pk %}" title="">My Profile</a>
+                <a href="{% url 'create-product' %}" title="">Add Offer</a>
+                <a href="#" title="">Contact Admins</a>
+                <a href="#" title="">Help</a>
             </div>
         {% endif %}
 

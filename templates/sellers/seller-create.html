@@ -4,13 +4,20 @@
 {% block content %}
 
     <h1>Apply for Farmer's Market Seller</h1>
-    <div class="form-container">
 
-        <form method="post" enctype="multipart/form-data">
-            {{ form }}
-            {% csrf_token %}
-            <button>Create</button>
-        </form>
-    
-    </div>
+    {% if seller_pk %}
+        <h2>You've already applied for a seller.</h2>
+        <p>Seller applications must be approved by the site admins.</p>
+
+    {% else %}
+        <div class="form-container">
+            <form method="post" enctype="multipart/form-data">
+                {{ form }}
+                {% csrf_token %}
+                <button>Create</button>
+            </form>
+        </div>
+    {% endif %}
+
+
 {% endblock %}

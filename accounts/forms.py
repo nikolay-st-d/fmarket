@@ -13,12 +13,9 @@ class AccountUserCreationForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super().save(commit=commit)
-
         profile = Profile(
             user=user,
         )
-
         if commit:
             profile.save()
-
         return user

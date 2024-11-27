@@ -4,27 +4,29 @@
 {% block content %}
 
     <h1>Farmer: {{ object.name }}</h1>
-    <section class="product-details-section">
+    <section class="seller-details-section">
 
-        <div class="product-details-left">
-             <img src="{{ object.photo.url }}" alt="{{ object.name }}">
+        <div class="seller-details-left">
+            <img src="{{ object.photo.url }}" alt="{{ object.name }}">
+        {% if seller_pk == object.pk %}
+            <a class="seller-details-link" href="{% url 'seller-update' pk=object.pk %}" title="Edit profile">
+                <i class="fa-solid fa-pen-to-square"></i> Edit My Profile</a>
+        {% endif %}
         </div>
 
-        <div class="product-details-right">
-        {% if seller_pk == object.pk %}
-            <p><a href="{% url 'seller-update' pk=object.pk %}"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</a></p>
-        {% endif %}
+        <div class="seller-details-right">
+
             <p>Country: {{ object.account.profile.country }}</p>
             <p>City: {{ object.city }}</p>
             <p>Address: {{ object.address }}</p>
             {% if object.website_url %}
-                <p>Website: <a href="{{ object.website_url }}" target="_blank">{{ object.name }}'s website</a></p>
+                <p>Website: <a href="{{ object.website_url }}" target="_blank">{{ object.website_url }}</a></p>
             {% endif %}
             <p>Email: {{ object.account.email }}</p>
             <p>Phone number: {{ object.account.profile.phone_number }}</p>
             <p>Products listed: {{ object.products.count }}</p>
 
-            <div class="product-description">
+            <div class="seller-description">
                 <p><strong>Farmer info:</strong></p>
                 <p>{{ object.description }}</p>
             </div>

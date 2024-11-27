@@ -1,14 +1,16 @@
+from django.contrib.auth import get_user_model
 from django.core.validators import MinLengthValidator, MinValueValidator
 from django.db import models
 
-from accounts.models import AccountUser
 from sellers.models import Seller
+
+UserModel = get_user_model()
 
 
 class Product(models.Model):
-    NAME_MIN_LENGTH = 12
+    NAME_MIN_LENGTH = 3
     NAME_MAX_LENGTH = 40
-    DESCRIPTION_MIN_LENGTH = 120
+    DESCRIPTION_MIN_LENGTH = 60
 
     class QtyUnits(models.TextChoices):
         TON = 'Ton', 'Ton'
@@ -23,10 +25,12 @@ class Product(models.Model):
         FRUITS = 'Fruits', 'Fruits',
         NUTS = 'Nuts', 'Nuts'
         CANNED = 'Canned Food', 'Canned Food'
+        DRIED = 'Dried Food', 'Dried Food'
         SPICES = 'Spices', 'Spices'
         MEAT = 'Meat Products', 'Meat Products'
         FISH = 'Fish Products', 'Fish Products'
         CHEESE = 'Cheese', 'Cheese'
+        MUSHROOMS = 'Mushrooms', 'Mushrooms'
 
     name = models.CharField(
         max_length=NAME_MAX_LENGTH,
@@ -80,10 +84,17 @@ class Product(models.Model):
         default=1,
     )
     owner = models.ForeignKey(
+        to=UserModel,
+        on_delete=models.CASCADE,
+    )
+    seller = models.ForeignKey(
         to=Seller,
         related_name='products',
         on_delete=models.CASCADE,
     )
+
+    def __str__(self):
+        return self.name
 
 
 

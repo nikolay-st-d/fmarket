@@ -1,5 +1,10 @@
+from django.contrib.auth import get_user_model
+
 from accounts.models import Profile
+from products.models import Product
 from sellers.models import Seller
+
+UserModel = get_user_model()
 
 
 def seller_pk(request):
@@ -23,3 +28,14 @@ def account_complete(request):
             pass
     return {'account_complete': True}
 
+
+def site_stats(request):
+    num_users = UserModel.objects.all().count()
+    num_sellers = Seller.objects.all().count()
+    num_products = Product.objects.all().count()
+    data = {
+        'number_of_users': num_users,
+        'number_of_sellers': num_sellers,
+        'number_of_products': num_products,
+    }
+    return data

@@ -14,11 +14,11 @@ class LoginUserView(auth_views.LoginView):
     template_name = 'accounts/login.html'
 
 
-class LogoutUserView(auth_views.LogoutView):
+class LogoutUserView(LoginRequiredMixin, auth_views.LogoutView):
     template_name = 'accounts/logout.html'
 
 
-class UserPasswordChangeView(auth_views.PasswordChangeView):
+class UserPasswordChangeView(LoginRequiredMixin, auth_views.PasswordChangeView):
     template_name = 'accounts/password-change.html'
 
     def form_valid(self, form):
@@ -42,7 +42,7 @@ class RegisterUserView(CreateView):
         return reverse('edit-user', kwargs={'pk': self.object.pk})
 
 
-class DeleteUserView(DeleteView):
+class DeleteUserView(LoginRequiredMixin, DeleteView):
     template_name = 'accounts/delete-user.html'
     model = UserModel
     success_url = reverse_lazy('index')
@@ -57,16 +57,17 @@ class EditProfileView(LoginRequiredMixin, UpdateView):
         return reverse('edit-user', kwargs={'pk': self.object.pk})
 
     def form_valid(self, form):
+        form.instance.phone_number = form.cleaned_data['phone_number'].replace(' ', '')
         messages.success(self.request, "Profile updated successfully!")
         return super().form_valid(form)
 
 
-class UserPasswordResetView(auth_views.PasswordResetView):
+class UserPasswordResetView(LoginRequiredMixin, auth_views.PasswordResetView):
     template_name = 'accounts/password-reset.html'
 
 
 # TODO: Have to check the following 3 classes in production.
-# TODO: These will probably need SMTP server setup to work
+# TODO: These will need SMTP server to work
 class UserPasswordResetDoneView(auth_views.PasswordResetDoneView):
     template_name = 'accounts/account.html'
     success_url = reverse_lazy('password_reset_done')

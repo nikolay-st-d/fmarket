@@ -11,21 +11,29 @@
                     src="{% static 'mediafiles/user-product-pk.jpg' %}"
                     alt="{{ product.name }}"
             />
-        </div>
-
-        <div class="product-details-right">
-            <p>Seller: {{ product.owner.name }}</p>
-            <p>Country: {{ product.owner.account.profile.country }}</p>
-            <p>Category: <a href="#" title="Category: Meat Products">{{ product.category }}</a></p>
-            <p>Price: &euro;{{ product.price }}/{{ product.qty_units }}</p>
-            
-            <a class="purchase-button" href="{% url 'seller-details' pk=product.owner.pk %}" title="{{ product.owner.name }}">
-                Contact Seller to Purchase</a>
-
             <div class="product-description">
                 <p><strong>PRODUCT DESCRIPTION:</strong></p>
                 <p>{{ product.description }}</p>
             </div>
+        </div>
+
+        <div class="product-details-right">
+            <p>Seller: {{ product.seller.name }}</p>
+            <p>Country: {{ product.owner.profile.country }}</p>
+            <p>Category: <a href="#" title="Category: Meat Products">{{ product.category }}</a></p>
+            <p>Available quantity: {{ product.available_qty }}{{ product.qty_units }}</p>
+            <p>Minimum order: {{ product.min_order }}{{ product.qty_units }}</p>
+            <p>Price: &euro;{{ product.price }}/{{ product.qty_units }}</p>
+        
+            {% if user.is_authenticated %}
+                {% if product.owner.pk != user.pk %}
+                    <a class="purchase-button" href="{% url 'seller-details' pk=product.seller.pk %}"
+                       title="{{ product.owner.name }}">Contact Seller to Purchase</a>
+                {% endif %}
+            {% else %}
+                <a class="purchase-button" href="{% url 'login' %}?next={% url 'product-details' pk=product.pk %}"
+                   title="Login">Please login to purchase this product.</a>
+            {% endif %}
         </div>
 
 

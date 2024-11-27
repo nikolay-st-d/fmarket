@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>DELETE SELLER PROFILE</h1>
+    <div class="warning">
+        <p>WARNING! You are about to delete your seller profile and all the content associated with this profile!
+            This action is irreversible! Your user account will not be deleted and you
+            could continue using the site as a regular user.</p>
+    </div>
+    <div class="form-container">
+        <form method="post" enctype="multipart/form-data">
+            {{ form }}
+            {% csrf_token %}
+            <button>Delete Seller Profile</button>
+        </form>
+    </div>
+
+
+{% endblock %}

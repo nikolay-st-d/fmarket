@@ -6,7 +6,6 @@ class BaseSellerForm(forms.ModelForm):
     class Meta:
         model = Seller
         exclude = ('approved', 'account',)
-        # fields = '__all__'
 
 
 class SellerCreateForm(BaseSellerForm):

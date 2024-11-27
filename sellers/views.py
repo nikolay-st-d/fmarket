@@ -3,7 +3,6 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views
-
 from sellers.forms import SellerCreateForm, SellerUpdateForm
 from sellers.models import Seller
 
@@ -15,6 +14,11 @@ class SellersListView(views.ListView):
     template_name = 'sellers/sellers.html'
     ordering = '-pk'
     paginate_by = 4
+
+
+class SellerDashboardView(LoginRequiredMixin, views.DetailView):
+    model = Seller
+    template_name = 'sellers/dashboard.html'
 
 
 class SellerDetailsView(LoginRequiredMixin, views.DetailView):
@@ -47,7 +51,8 @@ class SellerUpdateView(LoginRequiredMixin, views.UpdateView):
         return reverse('seller-update', kwargs={'pk': self.object.pk})
 
 
-class SellerDashboardView(LoginRequiredMixin, views.DetailView):
+class SellerDeleteView(LoginRequiredMixin, views.DeleteView):
     model = Seller
-    template_name = 'sellers/dashboard.html'
+    template_name = 'sellers/seller-delete.html'
+    success_url = reverse_lazy('seller-create')
 

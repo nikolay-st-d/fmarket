@@ -92,6 +92,10 @@ class Profile(models.Model):
         ),
         null=True,
         blank=True,
+        help_text='Must include the country code, without whitespaces.',
+    )
+    is_seller = models.BooleanField(
+        default=False
     )
 
     def __str__(self):

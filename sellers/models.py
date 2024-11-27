@@ -2,11 +2,16 @@ import os
 from django.db import models
 from django.utils.text import slugify
 from accounts.models import AccountUser
+from django.utils.translation import gettext_lazy as _
 
 
 class Seller(models.Model):
     name = models.CharField(
         max_length=30,
+        unique=True,
+        error_messages={
+            'unique': _('Seller with this name already exists. Please choose another name!'),
+        },
     )
     description = models.TextField()
     city = models.CharField(
