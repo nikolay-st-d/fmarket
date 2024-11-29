@@ -4,10 +4,10 @@
 {% block content %}
     <h1>Create Product</h1>
     <div class="form-container">
-        <form method="post">
-            {{ form }}
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-                <button>Create Product</button>
+            {{ form }}
+            <button>Create Product</button>
         </form>
     </div>
 {% endblock %}

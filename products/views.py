@@ -19,8 +19,6 @@ class ProductCreateView(LoginRequiredMixin, views.CreateView):
     form_class = ProductCreateForm
     template_name = 'products/product-create.html'
 
-    # success_url = reverse_lazy('seller-dashboard')
-
     def form_valid(self, form):
         form.instance.owner = self.request.user
         form.instance.seller = Seller.objects.get(account=self.request.user)
@@ -28,7 +26,8 @@ class ProductCreateView(LoginRequiredMixin, views.CreateView):
 
     def get_success_url(self):
         messages.success(self.request, "Product created successfully!")
-        return reverse('product-details', kwargs={'pk': self.object.pk})
+        seller = Seller.objects.get(account=self.request.user)
+        return reverse('seller-products', kwargs={'pk': seller.pk})
 
 
 class ProductDetailsView(views.DetailView):
@@ -39,11 +38,12 @@ class ProductDetailsView(views.DetailView):
 class ProductUpdateView(LoginRequiredMixin, views.UpdateView):
     model = Product
     form_class = ProductCreateForm
-    template_name = 'products/product-create.html'
+    template_name = 'products/product-update.html'
 
     def get_success_url(self):
         messages.success(self.request, "Product updated successfully!")
-        return reverse('product-details', kwargs={'pk': self.object.pk})
+        seller = Seller.objects.get(account=self.request.user)
+        return reverse('seller-products', kwargs={'pk': seller.pk})
 
 
 class ProductDeleteView(views.DeleteView):
@@ -62,4 +62,4 @@ class SellerProductsView(LoginRequiredMixin, views.ListView):
     paginate_by = 20
 
     def get_queryset(self):
-        return Product.objects.filter(owner=self.request.user)
+        return Product.objects.filter(owner=self.request.user).order_by('name')

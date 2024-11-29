@@ -5,7 +5,7 @@ from products.models import Product
 class BaseProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ('owner', 'seller')
+        exclude = ('owner', 'seller', 'date_created')
 
 
 class ProductCreateForm(BaseProductForm):

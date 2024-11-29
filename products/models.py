@@ -38,7 +38,7 @@ class Product(models.Model):
             MinLengthValidator(NAME_MIN_LENGTH),
         ],
         error_messages={
-            MinLengthValidator: f'The name must be at lease {NAME_MIN_LENGTH} characters long!'
+            MinLengthValidator: f'The name must be at least {NAME_MIN_LENGTH} characters long!'
         }
     )
     description = models.TextField(
@@ -47,7 +47,7 @@ class Product(models.Model):
         ],
         default='',
         error_messages={
-            MinLengthValidator: f'The description length must be at least {DESCRIPTION_MIN_LENGTH} characters!',
+            MinLengthValidator: f'The description must be at least {DESCRIPTION_MIN_LENGTH} characters long!',
         }
     )
     category = models.CharField(
@@ -83,6 +83,9 @@ class Product(models.Model):
         ],
         default=1,
     )
+    photo = models.ImageField(
+        upload_to='products/'
+    )
     owner = models.ForeignKey(
         to=UserModel,
         on_delete=models.CASCADE,
@@ -91,6 +94,9 @@ class Product(models.Model):
         to=Seller,
         related_name='products',
         on_delete=models.CASCADE,
+    )
+    date_created = models.DateField(
+        auto_now_add=True,
     )
 
     def __str__(self):

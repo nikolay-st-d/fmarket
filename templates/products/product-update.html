@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Update Product</h1>
+    <div class="form-container">
+        <form method="post">
+            {{ form }}
+            {% csrf_token %}
+                <button>Update Product</button>
+        </form>
+    </div>
+{% endblock %}

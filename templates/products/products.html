@@ -17,7 +17,7 @@
                     <div class="offer-img-wrapper">
                         <a href="{% url 'product-details' pk=product.pk %}" title="{{ product.name }}">
                             <img
-                                    src="{% static 'mediafiles/user-product-pk.jpg' %}"
+                                    src="{{ product.photo.url }}"
                                     alt="{{ product.name }}"
                             />
                             {% if product.discount > 0 %}

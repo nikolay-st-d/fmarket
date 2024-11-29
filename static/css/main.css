@@ -78,6 +78,7 @@ main p {
     border-radius: 0.4em;
     overflow: hidden;
     transition: 0.3s ease;
+    border: 1px solid lightgray;
 }
 .offer-img-wrapper img:hover {
     transform: scale(1.06);

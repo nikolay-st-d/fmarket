@@ -8,7 +8,7 @@
 
         <div class="product-details-left">
             <img
-                    src="{% static 'mediafiles/user-product-pk.jpg' %}"
+                    src="{{ product.photo.url }}"
                     alt="{{ product.name }}"
             />
             <div class="product-description">

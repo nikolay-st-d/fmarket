@@ -51,16 +51,28 @@
 }
 
 .product-list-table td {
-    font-size: 0.9em;
+    font-size: 0.8em;
     padding: 0.4em 1.2em;
     margin: 5px;
+    text-align: right;
+}
+.product-list-table td:nth-child(1) {
+    text-align: left;
+}
+.product-list-table td:nth-child(2),
+.product-list-table td:nth-child(3),
+.product-list-table td:nth-child(8) {
+    text-align: center;
+}
+
+.product-list-table td i {
+    font-size: 1.1em;
 }
 
 .product-list-table td:last-of-type {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.1em;
 }
 
 .product-list-table tbody tr:nth-child(odd) {

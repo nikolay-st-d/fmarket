@@ -12,11 +12,13 @@
             <thead>
             <tr>
                 <td>Product Name</td>
+                <td>Photo</td>
                 <td>Category</td>
-                <td>Available Qty</td>
-                <td>Minimum Order Qty</td>
-                <td>Price € (EUR)</td>
-                <td>Discount %</td>
+                <td>Avail. Qty</td>
+                <td>Min. Order</td>
+                <td>Price €</td>
+                <td>Discount</td>
+                <td>Date Added</td>
                 <td>Actions</td>
             </tr>
             </thead>
@@ -24,11 +26,13 @@
             {% for prod in object_list %}
                 <tr>
                     <td><a href="{% url 'product-details' pk=prod.pk %}">{{ prod.name }}</a></td>
+                    <td><a target="_blank" href="{{ prod.photo.url }}"><i class="fa-solid fa-image"></i></a></td>
                     <td>{{ prod.category }}</td>
                     <td>{{ prod.available_qty }}{{ prod.qty_units }}</td>
                     <td>{{ prod.min_order }}{{ prod.qty_units }}</td>
                     <td>{{ prod.price }}/{{ prod.qty_units }}</td>
                     <td>{{ prod.discount }}%</td>
+                    <td>{{ prod.date_created }}</td>
                     <td>
                         <a href="{%  url 'product-update' pk=prod.pk %}" title="Update product details">
                             <i class="fa-solid fa-pen-to-square"></i></a>
@@ -42,6 +46,8 @@
 
     {% else %}
         <p>No products listed.</p>
+        <p>&nbsp;</p>
+        <a href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> Add Product</a>
     {% endif %}
 
     {% if page_obj.has_next or page_obj.has_previous %}

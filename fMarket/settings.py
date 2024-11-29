@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "sellers.apps.SellersConfig",
     "products.apps.ProductsConfig",
-    "photos.apps.PhotosConfig"
 ]
 
 MIDDLEWARE = [
