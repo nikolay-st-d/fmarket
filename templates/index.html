@@ -4,7 +4,7 @@
 
     <h1>European Farmer's Market</h1>
     <h2>Pure and tasty farmer's food and other farm products from all across Europe.</h2>
-    <div class="headings">
+    <section class="headings">
         <p>
             <strong>CLIENTS:</strong> Browse the offers to find your favorite taste. Offers from EU only, quality
             guaranteed by our highly rated farmers.
@@ -13,6 +13,19 @@
             <strong>FARMERS:</strong> Sell your products to connoisseurs in the EU. Gourmet restaurants and
             smart people need your high quality products!
         </p>
-    </div>
-
+    </section>
+    <h2>Latest Product Offers</h2>
+    <section class="latest-products-wrapper">
+        {% for product in object_list %}
+            <div class="latest-product-box">
+                <div class="latest-product-img-wrapper">
+                    <a href="{% url 'product-details' pk=product.pk %}" title="{{ product.name }}">
+                        <img src="{{ product.photo.url }}" alt="{{ product.name }}"/>
+                    </a>
+                </div>
+                <h3>{{ product.name }}</h3>
+                <p>from {{ product.owner.profile.country }}</p>
+            </div>
+        {% endfor %}
+    </section>
 {% endblock %}

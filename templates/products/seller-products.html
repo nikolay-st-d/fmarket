@@ -4,9 +4,7 @@
 {% block content %}
     {% if object_list %}
         <h1>My Products</h1>
-        <div class="add-product-button">
-            <a href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> Add Product</a>
-        </div>
+            <a class="add-product-button" href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> New Product</a>
 
         <table class="product-list-table">
             <thead>
@@ -26,10 +24,10 @@
             {% for prod in object_list %}
                 <tr>
                     <td><a href="{% url 'product-details' pk=prod.pk %}">{{ prod.name }}</a></td>
-                    <td><a target="_blank" href="{{ prod.photo.url }}"><i class="fa-solid fa-image"></i></a></td>
+                    <td><a target="_blank" href="{{ prod.photo.url }}"><img src="{{ prod.photo.url }}" alt="{{ prod.name }}"></a></td>
                     <td>{{ prod.category }}</td>
-                    <td>{{ prod.available_qty }}{{ prod.qty_units }}</td>
-                    <td>{{ prod.min_order }}{{ prod.qty_units }}</td>
+                    <td>{{ prod.available_qty }} {{ prod.qty_units }}</td>
+                    <td>{{ prod.min_order }} {{ prod.qty_units }}</td>
                     <td>{{ prod.price }}/{{ prod.qty_units }}</td>
                     <td>{{ prod.discount }}%</td>
                     <td>{{ prod.date_created }}</td>
@@ -47,7 +45,7 @@
     {% else %}
         <p>No products listed.</p>
         <p>&nbsp;</p>
-        <a href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> Add Product</a>
+        <a class="add-product-button" href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> Add Product</a>
     {% endif %}
 
     {% if page_obj.has_next or page_obj.has_previous %}

@@ -25,7 +25,7 @@ class ProductCreateView(LoginRequiredMixin, views.CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        messages.success(self.request, "Product created successfully!")
+        messages.success(self.request, f'Product "{self.object.name}" created successfully!')
         seller = Seller.objects.get(account=self.request.user)
         return reverse('seller-products', kwargs={'pk': seller.pk})
 
@@ -41,7 +41,7 @@ class ProductUpdateView(LoginRequiredMixin, views.UpdateView):
     template_name = 'products/product-update.html'
 
     def get_success_url(self):
-        messages.success(self.request, "Product updated successfully!")
+        messages.success(self.request, f'Product "{self.object.name}" updated successfully!')
         seller = Seller.objects.get(account=self.request.user)
         return reverse('seller-products', kwargs={'pk': seller.pk})
 

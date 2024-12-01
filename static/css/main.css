@@ -101,21 +101,18 @@ main p {
 
 .purchase-button {
     display: block;
-    width: fit-content;
-    padding: 0.2em 0.5em;
-    color: rgb(255, 129, 3);
-    background-color: white;
+    padding: 1em 2em;
+    color: white;
+    background-color: rgb(255, 129, 3);
+    text-align: center;
     text-decoration: none;
-    border: 1px solid rgb(255, 129, 3);
-    border-radius: 0.4em;
     transition: 0.3s ease;
-    margin: 1em 0;
+    margin: 0.2em 0;
 }
 .purchase-button:hover {
     text-decoration: none;
-    background-color: rgb(255, 252, 229);
-    color: rgb(255, 91, 3);
-    border-color: rgb(255, 91, 3);
+    color: white;
+    background-color: rgb(255, 146, 3);
     cursor: pointer;
 }
 
@@ -128,6 +125,7 @@ form .helptext {
     font-family: "Open Sans", Verdana, sans-serif;
     font-size: 0.9em;
     width: fit-content;
+    min-width: 25em;
     margin: 2em auto;
 }
 .form-container form {
@@ -239,4 +237,8 @@ form .helptext {
     width: 100%;
     text-align: right;
     color: white;
+}
+.image-420 {
+    max-width: 420px;
+    margin: 0 auto;
 }

@@ -10,7 +10,7 @@
 .product-details-section {
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 3em;
     margin: 1em 0;
 }
 
@@ -54,17 +54,14 @@
     font-size: 0.8em;
     padding: 0.4em 1.2em;
     margin: 5px;
-    text-align: right;
+    text-align: center;
 }
 .product-list-table td:nth-child(1) {
     text-align: left;
 }
-.product-list-table td:nth-child(2),
-.product-list-table td:nth-child(3),
-.product-list-table td:nth-child(8) {
-    text-align: center;
+.product-list-table td:nth-child(2) img {
+    width: 60px;
 }
-
 .product-list-table td i {
     font-size: 1.1em;
 }
@@ -84,7 +81,14 @@
     background-color: #c4ffc4;
     color: black;
 }
-
 .add-product-button {
-    margin-left: 0.2em;
+    display: block;
+    width: fit-content;
+    padding: 0.3em 0.6em;
+}
+.product-details-seller-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
 }

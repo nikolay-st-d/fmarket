@@ -7,14 +7,29 @@
     <section class="product-details-section">
 
         <div class="product-details-left">
-            <img
-                    src="{{ product.photo.url }}"
-                    alt="{{ product.name }}"
-            />
-            <div class="product-description">
-                <p><strong>PRODUCT DESCRIPTION:</strong></p>
-                <p>{{ product.description }}</p>
-            </div>
+            <a href="{{ product.photo.url }}" title="{{ product.name }}" target="_blank">
+                <img
+                        src="{{ product.photo.url }}"
+                        alt="{{ product.name }}"
+                /></a>
+
+            {% if user.is_authenticated %}
+                {% if product.owner.pk != user.pk %}
+                    <a class="purchase-button" href="{% url 'seller-details' pk=product.seller.pk %}"
+                       title="{{ product.owner.name }}">Purchase / Contact the Farmer</a>
+                {% else %}
+                    <div class="product-details-seller-actions">
+                        <a href="{% url 'product-update' pk=product.pk %}" title="Update product details">
+                            <i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{% url 'product-delete' pk=product.pk %}" title="Delete product">
+                            <i class="fa-solid fa-trash"></i></a>
+                    </div>
+                {% endif %}
+            {% else %}
+                <a class="purchase-button" href="{% url 'login' %}?next={% url 'product-details' pk=product.pk %}"
+                   title="Login">Please login to purchase this product.</a>
+            {% endif %}
+
         </div>
 
         <div class="product-details-right">
@@ -23,19 +38,14 @@
             <p>Category: <a href="#" title="Category: Meat Products">{{ product.category }}</a></p>
             <p>Available quantity: {{ product.available_qty }}{{ product.qty_units }}</p>
             <p>Minimum order: {{ product.min_order }}{{ product.qty_units }}</p>
+            <p>Delivery: {{ product.delivery }}</p>
+            <p>Payment by: {{ product.payment }}</p>
             <p>Price: &euro;{{ product.price }}/{{ product.qty_units }}</p>
-        
-            {% if user.is_authenticated %}
-                {% if product.owner.pk != user.pk %}
-                    <a class="purchase-button" href="{% url 'seller-details' pk=product.seller.pk %}"
-                       title="{{ product.owner.name }}">Contact Seller to Purchase</a>
-                {% endif %}
-            {% else %}
-                <a class="purchase-button" href="{% url 'login' %}?next={% url 'product-details' pk=product.pk %}"
-                   title="Login">Please login to purchase this product.</a>
-            {% endif %}
+
+            <div class="product-description">
+                <p><strong>PRODUCT DESCRIPTION:</strong></p>
+                <p>{{ product.description }}</p>
+            </div>
         </div>
-
-
     </section>
 {% endblock %}

@@ -29,8 +29,8 @@
 }
 .seller-img-wrapper img {
     object-fit: cover;
-    width: 14.5em;
-    height: 14.5em;
+    width: 12em;
+    height: 12em;
     border:1px solid lightgray;
     border-radius: 50%;
     overflow: hidden;
@@ -43,7 +43,6 @@
     text-align: center;
     width: 100%;
     font-weight: 400;
-    margin-top: 1em;
     padding: 0.3em 0.8em;
     border-radius: 0.4em;
 }
@@ -88,7 +87,7 @@
 .seller-details-section {
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 3em;
     margin: 1em 0;
 }
 .seller-details-left {
@@ -111,7 +110,7 @@
     width: fit-content;
     display: block;
     padding: 0.5em 1em;
-    margin: 1em auto;
+    margin: 0 auto;
     background-color: #067e00;
     color: white;
     border-radius: 0.4em;

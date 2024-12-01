@@ -22,8 +22,8 @@
             {% if object.website_url %}
                 <p>Website: <a href="{{ object.website_url }}" target="_blank">{{ object.website_url }}</a></p>
             {% endif %}
-            <p>Email: {{ object.account.email }}</p>
-            <p>Phone number: {{ object.account.profile.phone_number }}</p>
+            <p>Email: <a href="mailto:{{ object.account.email }}" title="Message seller by email" target="_blank">{{ object.account.email }}</a></p>
+            <p>Phone number: <a href="tel:{{ object.account.profile.phone_number }}">{{ object.account.profile.phone_number }}</a></p>
             <p>Products listed: {{ object.products.count }}</p>
 
             <div class="seller-description">

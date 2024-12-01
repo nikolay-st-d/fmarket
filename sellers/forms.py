@@ -1,8 +1,9 @@
 from django import forms
+from fMarket.mixins import PlaceholderMixin
 from sellers.models import Seller
 
 
-class BaseSellerForm(forms.ModelForm):
+class BaseSellerForm(PlaceholderMixin, forms.ModelForm):
     class Meta:
         model = Seller
         exclude = ('approved', 'account',)

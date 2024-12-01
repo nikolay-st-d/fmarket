@@ -1,8 +1,10 @@
 from django import forms
+
+from fMarket.mixins import PlaceholderMixin
 from products.models import Product
 
 
-class BaseProductForm(forms.ModelForm):
+class BaseProductForm(PlaceholderMixin, forms.ModelForm):
     class Meta:
         model = Product
         exclude = ('owner', 'seller', 'date_created')

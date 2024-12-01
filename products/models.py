@@ -31,6 +31,20 @@ class Product(models.Model):
         FISH = 'Fish Products', 'Fish Products'
         CHEESE = 'Cheese', 'Cheese'
         MUSHROOMS = 'Mushrooms', 'Mushrooms'
+        OTHER = 'Other', 'Other'
+
+    class DeliveryChoices(models.TextChoices):
+        EU = 'All EU by Courier', 'All EU by Courier'
+        COUNTRY = 'Within Seller Country', 'Within Seller Country'
+        LOCAL_PICKUP = 'Local Pickup', 'Local Pickup'
+        OTHER = 'Other - please ask', 'Other - please ask'
+
+    class PaymentChoices(models.TextChoices):
+        PAYMENT_ON_DELIVERY = 'Payment on Delivery', 'Payment on Delivery'
+        CASH = 'Cash on Pick-up', 'Cash on Pick-up'
+        PAYPAL = 'PayPal', 'PayPal'
+        BANK_TRANSFER = 'Bank Transfer', 'Bank Transfer'
+        OTHER = 'Other', 'Other'
 
     name = models.CharField(
         max_length=NAME_MAX_LENGTH,
@@ -48,7 +62,8 @@ class Product(models.Model):
         default='',
         error_messages={
             MinLengthValidator: f'The description must be at least {DESCRIPTION_MIN_LENGTH} characters long!',
-        }
+        },
+        help_text=f'Minimum length: {DESCRIPTION_MIN_LENGTH} characters'
     )
     category = models.CharField(
         max_length=20,
@@ -83,8 +98,17 @@ class Product(models.Model):
         ],
         default=1,
     )
+    payment = models.CharField(
+        choices=PaymentChoices.choices,
+        default=PaymentChoices.PAYMENT_ON_DELIVERY,
+    )
+    delivery = models.CharField(
+        choices=DeliveryChoices.choices,
+        default=DeliveryChoices.LOCAL_PICKUP,
+    )
     photo = models.ImageField(
-        upload_to='products/'
+        upload_to='products/',
+        help_text='Recommended image size - min: 800x600, max: 1600x1200',
     )
     owner = models.ForeignKey(
         to=UserModel,
