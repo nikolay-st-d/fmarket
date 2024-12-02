@@ -11,6 +11,36 @@
     border: 1px solid rgb(138, 221, 163);
     border-radius: 0.4em;
 }
+
+.how-it-works-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6em;
+    margin-bottom: 2em;
+}
+.how-it-works-block {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    flex-shrink: 2;
+    padding: 0 1em 1em 1em;
+    border-radius: 0.4em;
+    align-items: flex-start;
+    color: rgb(255, 255, 255, 0.7);
+}
+.how-it-works-block h3 {
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-bottom: 0.4em;
+}
+.customers {
+    background-color: #2e601e;
+    background-image: linear-gradient(to right top, #05410b, #155c1b, #288836);
+}
+.farmers {
+    background-color: #7c490c;
+    background-image: linear-gradient(to right top, #412403, #7c490c, #927e2d);
+}
 .latest-products-wrapper {
     display: flex;
     flex-direction: column;

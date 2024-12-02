@@ -16,6 +16,7 @@ class LoginUserView(auth_views.LoginView):
 
 class LogoutUserView(LoginRequiredMixin, auth_views.LogoutView):
     template_name = 'accounts/logout.html'
+    success_url = reverse_lazy('index')
 
 
 class UserPasswordChangeView(LoginRequiredMixin, auth_views.PasswordChangeView):

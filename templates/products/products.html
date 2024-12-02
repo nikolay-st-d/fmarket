@@ -28,9 +28,13 @@
                         </a>
                     </div>
                     <div class="offer-details">
-                        <p>Seller: <a href="{% url 'seller-details' pk=product.seller.pk %}" 
+                        <p>Seller: <a href="{% url 'seller-details' pk=product.seller.pk %}"
                                       title="Farmer: {{ product.seller.name }}">
-                            {{ product.seller.name }}</a>
+                            {{ product.seller.name }}</a> 
+                            {% if product.owner.pk == user.pk %}
+                                <i class="fa-solid fa-user"></i>
+                            {% endif %}
+
                         </p>
                         <p>Country: <strong>{{ product.owner.profile.country }}</strong></p>
                         <p>Category: <a href="#" title="Category: {{ product.category }}">{{ product.category }}</a></p>

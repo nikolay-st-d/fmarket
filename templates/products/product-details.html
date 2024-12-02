@@ -27,7 +27,7 @@
                 {% endif %}
             {% else %}
                 <a class="purchase-button" href="{% url 'login' %}?next={% url 'product-details' pk=product.pk %}"
-                   title="Login">Please login to purchase this product.</a>
+                   title="Login">Please login to contact the Farmer!</a>
             {% endif %}
 
         </div>
@@ -35,7 +35,7 @@
         <div class="product-details-right">
             <p>Seller: {{ product.seller.name }}</p>
             <p>Country: {{ product.owner.profile.country }}</p>
-            <p>Category: <a href="#" title="Category: Meat Products">{{ product.category }}</a></p>
+            <p>Category: <a href="#" title="{{ product.category }}">{{ product.category }}</a></p>
             <p>Available quantity: {{ product.available_qty }}{{ product.qty_units }}</p>
             <p>Minimum order: {{ product.min_order }}{{ product.qty_units }}</p>
             <p>Delivery: {{ product.delivery }}</p>

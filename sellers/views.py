@@ -46,6 +46,9 @@ class SellerUpdateView(LoginRequiredMixin, views.UpdateView):
     form_class = SellerUpdateForm
     template_name = 'sellers/seller-update.html'
 
+    def get_queryset(self):
+        return Seller.objects.filter(account=self.request.user)
+
     def get_success_url(self):
         messages.success(self.request, "Seller profile updated successfully!")
         return reverse('seller-update', kwargs={'pk': self.object.pk})
@@ -55,4 +58,8 @@ class SellerDeleteView(LoginRequiredMixin, views.DeleteView):
     model = Seller
     template_name = 'sellers/seller-delete.html'
     success_url = reverse_lazy('seller-create')
+
+    def get_queryset(self):
+        return Seller.objects.filter(account=self.request.user)
+
 

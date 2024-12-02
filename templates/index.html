@@ -6,7 +6,7 @@
     <h2>Pure and tasty farmer's food and other farm products from all across Europe.</h2>
     <section class="headings">
         <p>
-            <strong>CLIENTS:</strong> Browse the offers to find your favorite taste. Offers from EU only, quality
+            <strong>CLIENTS:</strong> Browse the offers to find your favorite products. Offers from EU only, quality
             guaranteed by our highly rated farmers.
         </p>
         <p>
@@ -14,6 +14,7 @@
             smart people need your high quality products!
         </p>
     </section>
+    
     <h2>Latest Product Offers</h2>
     <section class="latest-products-wrapper">
         {% for product in object_list %}
@@ -28,4 +29,45 @@
             </div>
         {% endfor %}
     </section>
+    
+    <h2>How it works for buyers</h2>
+    <section class="how-it-works-wrapper">
+        <div class="how-it-works-block customers">
+            <h3>1. Browse Products</h3>
+            <p>You can browse all the products offered without registering an account.</p>
+        </div>
+        <div class="how-it-works-block customers">
+            <h3>2. Contact the Farmer</h3>
+            <p>To see the full farmer's profile and the contact options, you must be logged-in.</p>
+        </div>
+        <div class="how-it-works-block customers">
+            <h3>3. Make a Deal</h3>
+            <p>It's between you and the farmer to arrange the payment and the delivery details.</p>
+        </div>
+        <div class="how-it-works-block customers">
+            <h3>4. Leave a Review</h3>
+            <p>It's optional to write a review about a farmer, but we encourage you to make it.</p>
+        </div>
+    </section>
+    
+    <h2>How it works for farmers</h2>
+    <section class="how-it-works-wrapper">
+        <div class="how-it-works-block farmers">
+            <h3>1. Register</h3>
+            <p>You can browse all the products offered without registering an account.</p>
+        </div>
+        <div class="how-it-works-block farmers">
+            <h3>2. Apply for Seller</h3>
+            <p>To see the full farmer's profile and the contact options, you must be logged-in.</p>
+        </div>
+        <div class="how-it-works-block farmers">
+            <h3>3. Get Approved</h3>
+            <p>It's between you and the farmer to arrange the payment and the delivery details.</p>
+        </div>
+        <div class="how-it-works-block farmers">
+            <h3>4. Add Offers</h3>
+            <p>It's optional to write a review about a farmer, but we encourage you to make it.</p>
+        </div>
+    </section>
+    
 {% endblock %}

@@ -40,15 +40,23 @@ class ProductUpdateView(LoginRequiredMixin, views.UpdateView):
     form_class = ProductCreateForm
     template_name = 'products/product-update.html'
 
+    def get_queryset(self):
+        seller = Seller.objects.get(account=self.request.user)
+        return Product.objects.filter(seller=seller)
+
     def get_success_url(self):
         messages.success(self.request, f'Product "{self.object.name}" updated successfully!')
         seller = Seller.objects.get(account=self.request.user)
         return reverse('seller-products', kwargs={'pk': seller.pk})
 
 
-class ProductDeleteView(views.DeleteView):
+class ProductDeleteView(LoginRequiredMixin, views.DeleteView):
     model = Product
     template_name = 'products/product-delete.html'
+
+    def get_queryset(self):
+        seller = Seller.objects.get(account=self.request.user)
+        return Product.objects.filter(seller=seller)
 
     def get_success_url(self):
         messages.success(self.request, "Product deleted successfully!")
