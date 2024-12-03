@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import login, get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy, reverse
 from django.views.generic import UpdateView, CreateView, DeleteView
@@ -43,16 +43,24 @@ class RegisterUserView(CreateView):
         return reverse('edit-user', kwargs={'pk': self.object.pk})
 
 
-class DeleteUserView(LoginRequiredMixin, DeleteView):
+class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = 'accounts/delete-user.html'
     model = UserModel
     success_url = reverse_lazy('index')
 
+    def test_func(self):
+        account = self.get_object()
+        return account.pk == self.request.user.pk
 
-class EditProfileView(LoginRequiredMixin, UpdateView):
+
+class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Profile
     fields = 'first_name', 'last_name', 'country', 'phone_number'
     template_name = 'accounts/edit-user.html'
+
+    def test_func(self):
+        account = self.get_object()
+        return account.pk == self.request.user.pk
 
     def get_success_url(self):
         return reverse('edit-user', kwargs={'pk': self.object.pk})
@@ -63,7 +71,7 @@ class EditProfileView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 
-class UserPasswordResetView(LoginRequiredMixin, auth_views.PasswordResetView):
+class UserPasswordResetView(auth_views.PasswordResetView):
     template_name = 'accounts/password-reset.html'
 
 

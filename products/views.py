@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse
 from django.views import generic as views
 from products.forms import ProductCreateForm
@@ -35,14 +35,15 @@ class ProductDetailsView(views.DetailView):
     template_name = 'products/product-details.html'
 
 
-class ProductUpdateView(LoginRequiredMixin, views.UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, views.UpdateView):
     model = Product
     form_class = ProductCreateForm
     template_name = 'products/product-update.html'
 
-    def get_queryset(self):
+    def test_func(self):
+        product = self.get_object()
         seller = Seller.objects.get(account=self.request.user)
-        return Product.objects.filter(seller=seller)
+        return product.seller == seller
 
     def get_success_url(self):
         messages.success(self.request, f'Product "{self.object.name}" updated successfully!')
@@ -50,13 +51,14 @@ class ProductUpdateView(LoginRequiredMixin, views.UpdateView):
         return reverse('seller-products', kwargs={'pk': seller.pk})
 
 
-class ProductDeleteView(LoginRequiredMixin, views.DeleteView):
+class ProductDeleteView(LoginRequiredMixin, UserPassesTestMixin, views.DeleteView):
     model = Product
     template_name = 'products/product-delete.html'
 
-    def get_queryset(self):
+    def test_func(self):
+        product = self.get_object()
         seller = Seller.objects.get(account=self.request.user)
-        return Product.objects.filter(seller=seller)
+        return product.seller == seller
 
     def get_success_url(self):
         messages.success(self.request, "Product deleted successfully!")

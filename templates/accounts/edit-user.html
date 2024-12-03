@@ -3,37 +3,33 @@
 
 {% block content %}
 
-    {% if user.is_authenticated and user.pk == object.user_id %}
-        <div class="form-container">
-            {% if not account_complete %}
-                <p class="site-note"><i class="fa-solid fa-triangle-exclamation"></i>
-                    All fields must be set for full access to site features!</p>
-            {% else %}
-                <p class="site-note green"><i class="fa-solid fa-user"></i>
-                    Your account is all set.</p>
-            {% endif %}
+    <div class="form-container">
+        {% if not account_complete %}
+            <p class="site-note"><i class="fa-solid fa-triangle-exclamation"></i>
+                All fields must be set for full access to site features!</p>
+        {% else %}
+            <p class="site-note green"><i class="fa-solid fa-user"></i>
+                Your account is all set.</p>
+        {% endif %}
 
-            <form method="post">
-                {{ form }}
-                {% csrf_token %}
+        <form method="post">
+            {{ form }}
+            {% csrf_token %}
 
-                <div class="form-button-row">
-                    <button>Update Account Data</button>
-                </div>
-
-            </form>
-            <div class="account-links">
-                {% if account_complete and not seller_pk %}
-                    <a href="{% url 'seller-create' %}" title="Profile Details">
-                        <i class="fa-solid fa-store"></i> Apply for Seller</a>
-                {% endif %}
-                <a href="{% url 'password-change' %}" title="Change Password">
-                    <i class="fa-solid fa-key"></i> Change Password</a>
-                <a href="{% url 'delete-account' pk=user.pk %}">
-                    <i class="fa-solid fa-trash"></i> Delete Account</a>
+            <div class="form-button-row">
+                <button>Update Account Data</button>
             </div>
+
+        </form>
+        <div class="account-links">
+            {% if account_complete and not seller_pk %}
+                <a href="{% url 'seller-create' %}" title="Profile Details">
+                    <i class="fa-solid fa-store"></i> Apply for Seller</a>
+            {% endif %}
+            <a href="{% url 'password-change' %}" title="Change Password">
+                <i class="fa-solid fa-key"></i> Change Password</a>
+            <a href="{% url 'delete-account' pk=user.pk %}">
+                <i class="fa-solid fa-trash"></i> Delete Account</a>
         </div>
-    {% else %}
-        <p>Access denied!</p>
-    {% endif %}
+    </div>
 {% endblock %}
