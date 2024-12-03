@@ -23,9 +23,9 @@
     /></a>
     <div class="header-right">
 
-    <section class="site-stats">
-        Site Stats: {{ number_of_users }} users | {{ number_of_sellers }} farmers | {{ number_of_products }} offers
-    </section>
+        <section class="site-stats">
+            Site Stats: {{ number_of_users }} users | {{ number_of_sellers }} farmers | {{ number_of_products }} offers
+        </section>
 
         {% if request.user.profile %}
             <form method="post" action="{% url 'logout' %}">
@@ -52,10 +52,12 @@
     <a href='{% url 'products' %}' title='Products offered'>Products</a>
     <a href='{% url 'sellers' %}' title='Registered Farmers'>Farmers</a>
     {% if seller_pk %}
-        <a class="seller-button"href="{% url 'seller-details' pk=seller_pk %}" title="">My Profile</a>
-        <a class="seller-button"href="{% url 'seller-products' pk=seller_pk %}" title="">My Products</a>
-        <a class="seller-button"href="#" title="">Contact Admins</a>
-        <a class="seller-button"href="#" title="">Help</a>
+        <a class="seller-button" href="{% url 'seller-details' pk=seller_pk %}" title="">My Profile</a>
+        <a class="seller-button" href="{% url 'seller-products' pk=seller_pk %}" title="">My Products</a>
+    {% endif %}
+    {% if user.pk %}
+        <a class="seller-button" href="#" title="">My Reviews</a>
+        <a class="seller-button" href="#" title="">Help</a>
     {% endif %}
 </nav>
 <main>

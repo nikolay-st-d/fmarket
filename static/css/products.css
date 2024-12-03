@@ -92,3 +92,13 @@
     gap: 1em;
     justify-content: center;
 }
+.reviews-container {
+    margin: 1em 0;
+}
+.review-box {
+    margin: 0.5em 0;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    border: 1px solid lightgreen;
+    border-radius: 0.4em;
+}

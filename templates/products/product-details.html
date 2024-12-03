@@ -46,6 +46,23 @@
                 <p><strong>PRODUCT DESCRIPTION:</strong></p>
                 <p>{{ product.description }}</p>
             </div>
+
+            <section class="reviews-container">
+                <p><strong>REVIEWS</strong></p>
+                <a href="#" title="write a review">Write a Review</a>
+                {% if product.reviews.first %}
+                    {% for review in product.reviews.all %}
+                        <div class="review-box">
+                            <p>Rating: {{ review.rating }} |
+                                Reviewer: {{ review.owner.profile.first_name }} {{ review.owner.profile.last_name }}</p>
+                            <p>{{ review.text }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No Reviews!</p>
+                {% endif %}
+            </section>
+
         </div>
     </section>
 {% endblock %}

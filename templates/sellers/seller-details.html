@@ -8,10 +8,12 @@
 
         <div class="seller-details-left">
             <img src="{{ object.photo.url }}" alt="{{ object.name }}">
-        {% if seller_pk == object.pk %}
-            <a class="seller-details-link" href="{% url 'seller-update' pk=object.pk %}" title="Edit profile">
-                <i class="fa-solid fa-pen-to-square"></i> Edit My Profile</a>
-        {% endif %}
+            {% if seller_pk == object.pk %}
+                <div class="product-details-seller-actions">
+                    <a href="{% url 'seller-update' pk=object.pk %}" title="Edit profile">
+                        <i class="fa-solid fa-pen-to-square"></i> Edit My Seller Profile</a>
+                </div>
+            {% endif %}
         </div>
 
         <div class="seller-details-right">
@@ -22,8 +24,11 @@
             {% if object.website_url %}
                 <p>Website: <a href="{{ object.website_url }}" target="_blank">{{ object.website_url }}</a></p>
             {% endif %}
-            <p>Email: <a href="mailto:{{ object.account.email }}" title="Message seller by email" target="_blank">{{ object.account.email }}</a></p>
-            <p>Phone number: <a href="tel:{{ object.account.profile.phone_number }}">{{ object.account.profile.phone_number }}</a></p>
+            <p>Email: <a href="mailto:{{ object.account.email }}" title="Message seller by email"
+                         target="_blank">{{ object.account.email }}</a></p>
+            <p>Phone number: <a
+                    href="tel:{{ object.account.profile.phone_number }}">{{ object.account.profile.phone_number }}</a>
+            </p>
             <p>Products listed: {{ object.products.count }}</p>
 
             <div class="seller-description">
