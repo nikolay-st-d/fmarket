@@ -48,18 +48,32 @@
             </div>
 
             <section class="reviews-container">
-                <p><strong>REVIEWS</strong></p>
-                <a href="#" title="write a review">Write a Review</a>
+                <div class="reviews-header">
+                    <p><strong>PRODUCT REVIEWS</strong></p>
+                    {% if user.pk %}
+                        <a href="{% url 'create-review' %}?product={{ product.pk }}" title="Review product">
+                            <i class="fa-solid fa-plus"></i> Add Review</a>
+                    {% endif %}
+                </div>
                 {% if product.reviews.first %}
                     {% for review in product.reviews.all %}
                         <div class="review-box">
-                            <p>Rating: {{ review.rating }} |
-                                Reviewer: {{ review.owner.profile.first_name }} {{ review.owner.profile.last_name }}</p>
+                            <div class="review-box-header">
+                                <p>By: {{ review.owner.profile.first_name }} {{ review.owner.profile.last_name }} |
+                                    Rating: {{ review.rating }} |
+                                    {{ review.date_created }}</p>
+                                <div class="review-box-links">
+                                    <a href="{% url 'update-review' pk=review.pk %}" title="Edit review">
+                                        <i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{% url 'delete-review' pk=review.pk %}" title="Delete review">
+                                        <i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </div>
                             <p>{{ review.text }}</p>
                         </div>
                     {% endfor %}
                 {% else %}
-                    <p>No Reviews!</p>
+                    <p class="no-reviews">No Reviews!</p>
                 {% endif %}
             </section>
 

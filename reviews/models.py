@@ -7,19 +7,21 @@ UserModel = get_user_model()
 
 class Review(models.Model):
 
+    MAX_TEXT_LENGTH = 400
+
     class RatingChoices(models.TextChoices):
-        NEGATIVE = 'Negative', 'Negative'
-        NEUTRAL = 'Neutral', 'Neutral'
         POSITIVE = 'Positive', 'Positive'
+        NEUTRAL = 'Neutral', 'Neutral'
+        NEGATIVE = 'Negative', 'Negative'
 
     rating = models.CharField(
-        max_length=10,
+        max_length=8,
         choices=RatingChoices.choices,
         default='Positive',
     )
-    text = models.CharField(
-        max_length=255,
-        help_text='Maximum review length: 255 characters'
+    text = models.TextField(
+        max_length=MAX_TEXT_LENGTH,
+        help_text=f'Maximum review length: {MAX_TEXT_LENGTH} characters'
     )
     owner = models.ForeignKey(
         to=UserModel,
@@ -30,4 +32,7 @@ class Review(models.Model):
         to=Product,
         on_delete=models.CASCADE,
         related_name='reviews',
+    )
+    date_created = models.DateField(
+        auto_now_add=True,
     )

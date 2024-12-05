@@ -1,11 +1,12 @@
 from django import forms
+from fMarket.mixins import PlaceholderMixin
 from reviews.models import Review
 
 
-class BaseReviewForm(forms.ModelForm):
+class BaseReviewForm(PlaceholderMixin, forms.ModelForm):
     class Meta:
         model = Review
-        exclude = ('owner', 'product')
+        exclude = ('owner', 'product', 'date_created')
 
 
 class CreateReviewForm(BaseReviewForm):
@@ -14,4 +15,3 @@ class CreateReviewForm(BaseReviewForm):
 
 class UpdateReviewForm(BaseReviewForm):
     pass
-

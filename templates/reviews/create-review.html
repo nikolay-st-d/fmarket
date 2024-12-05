@@ -1,5 +1,15 @@
-{% extends 'products/product-details.html' %}
+{% extends 'base.html' %}
 
-{% block reviews %}
-    
+{% block content %}
+    <h1>Write a review for Product</h1>
+    <p>Product name: {{ product_name }}</p>
+    <p>Product photo URL: {{ product_image }}</p>
+    <p>Product seller: {{ seller_name }}</p>
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button>Save Review</button>
+        </form>
+    </div>
 {% endblock %}
