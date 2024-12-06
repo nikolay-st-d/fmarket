@@ -50,24 +50,27 @@
             <section class="reviews-container">
                 <div class="reviews-header">
                     <p><strong>PRODUCT REVIEWS</strong></p>
-                    {% if user.pk %}
+                    {% if not user_wrote_review %}
                         <a href="{% url 'create-review' %}?product={{ product.pk }}" title="Review product">
                             <i class="fa-solid fa-plus"></i> Add Review</a>
                     {% endif %}
                 </div>
+            
                 {% if product.reviews.first %}
-                    {% for review in product.reviews.all %}
+                    {% for review in reviews %}
                         <div class="review-box">
                             <div class="review-box-header">
                                 <p>By: {{ review.owner.profile.first_name }} {{ review.owner.profile.last_name }} |
                                     Rating: {{ review.rating }} |
                                     {{ review.date_created }}</p>
-                                <div class="review-box-links">
-                                    <a href="{% url 'update-review' pk=review.pk %}" title="Edit review">
-                                        <i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="{% url 'delete-review' pk=review.pk %}" title="Delete review">
-                                        <i class="fa-solid fa-trash"></i></a>
-                                </div>
+                                {% if review.owner == user %}
+                                    <div class="review-box-links">
+                                        <a href="{% url 'update-review' pk=review.pk %}" title="Edit review">
+                                            <i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="{% url 'delete-review' pk=review.pk %}" title="Delete review">
+                                            <i class="fa-solid fa-trash"></i></a>
+                                    </div>
+                                {% endif %}
                             </div>
                             <p>{{ review.text }}</p>
                         </div>

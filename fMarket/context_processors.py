@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
-
 from accounts.models import Profile
 from products.models import Product
+from reviews.models import Review
 from sellers.models import Seller
 
 UserModel = get_user_model()
@@ -39,3 +39,14 @@ def site_stats(request):
         'number_of_products': num_products,
     }
     return data
+
+
+def user_wrote_review(request):
+    if not request.user.is_authenticated or not hasattr(request, 'product'):
+        return {'user_wrote_review': False}
+    product = request.product
+    user_review_exists = Review.objects.filter(product=product, owner=request.user).exists()
+    return {'user_wrote_review': user_review_exists}
+
+
+

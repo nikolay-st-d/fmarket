@@ -56,7 +56,7 @@
         <a class="seller-button" href="{% url 'seller-products' pk=seller_pk %}" title="">My Products</a>
     {% endif %}
     {% if user.pk %}
-        <a class="seller-button" href="#" title="">My Reviews</a>
+        <a class="seller-button" href="{% url 'list-reviews' %}" title="">My Reviews</a>
         <a class="seller-button" href="#" title="">Help</a>
     {% endif %}
 </nav>

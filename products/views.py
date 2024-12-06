@@ -11,7 +11,7 @@ class ProductsListView(views.ListView):
     model = Product
     template_name = 'products/products.html'
     ordering = '-id'
-    paginate_by = 8
+    paginate_by = 4
 
 
 class ProductCreateView(LoginRequiredMixin, views.CreateView):
@@ -33,6 +33,16 @@ class ProductCreateView(LoginRequiredMixin, views.CreateView):
 class ProductDetailsView(views.DetailView):
     model = Product
     template_name = 'products/product-details.html'
+
+    def get(self, request, *args, **kwargs):
+        product_obj = self.get_object()
+        request.product = product_obj
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['reviews'] = self.object.reviews.all().order_by('-date_created')
+        return context
 
 
 class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, views.UpdateView):

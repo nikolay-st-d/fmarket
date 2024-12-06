@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.core.validators import MinLengthValidator, MinValueValidator
 from django.db import models
 
+from fMarket.validators import image_size_validator
 from sellers.models import Seller
 
 UserModel = get_user_model()
@@ -109,6 +110,7 @@ class Product(models.Model):
     photo = models.ImageField(
         upload_to='products/',
         help_text='Recommended image size - min: 800x600, max: 1600x1200',
+        validators=(image_size_validator,),
     )
     owner = models.ForeignKey(
         to=UserModel,

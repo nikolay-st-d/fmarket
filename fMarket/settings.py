@@ -70,6 +70,7 @@ TEMPLATES = [
                 'fMarket.context_processors.seller_pk',
                 'fMarket.context_processors.account_complete',
                 'fMarket.context_processors.site_stats',
+                'fMarket.context_processors.user_wrote_review',
             ],
         },
     },

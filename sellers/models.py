@@ -4,6 +4,8 @@ from django.utils.text import slugify
 from accounts.models import AccountUser
 from django.utils.translation import gettext_lazy as _
 
+from fMarket.validators import image_size_validator
+
 
 class Seller(models.Model):
     name = models.CharField(
@@ -22,6 +24,7 @@ class Seller(models.Model):
     )
     photo = models.ImageField(
         upload_to='sellers/',
+        validators=(image_size_validator,),
     )
     website_url = models.URLField(
         null=True,

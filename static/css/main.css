@@ -103,7 +103,8 @@ main p {
     display: block;
     padding: 1em 2em;
     color: white;
-    background-color: rgb(255, 129, 3);
+    letter-spacing: 0.1em;
+    background-color: rgb(255, 154, 25);
     text-align: center;
     text-decoration: none;
     transition: 0.3s ease;
@@ -112,7 +113,7 @@ main p {
 .purchase-button:hover {
     text-decoration: none;
     color: white;
-    background-color: rgb(255, 146, 3);
+    background-color: rgb(255, 187, 98);
     cursor: pointer;
 }
 
@@ -125,7 +126,7 @@ form .helptext {
     font-family: "Open Sans", Verdana, sans-serif;
     font-size: 0.9em;
     width: fit-content;
-    min-width: 25em;
+    max-width: 40em;
     margin: 2em auto;
 }
 .form-container form {
