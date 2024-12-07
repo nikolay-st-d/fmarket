@@ -17,6 +17,16 @@ def seller_pk(request):
     return {'seller_pk': None}
 
 
+def seller_approved(request):
+    if request.user.is_authenticated:
+        try:
+            Seller.objects.get(account=request.user, approved=True)
+            return {'seller_approved': True}
+        except Seller.DoesNotExist:
+            pass
+    return {'seller_approved': False}
+
+
 def account_complete(request):
     if request.user.is_authenticated:
         user = Profile.objects.get(pk=request.user)

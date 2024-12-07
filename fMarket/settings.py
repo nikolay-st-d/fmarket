@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "sellers.apps.SellersConfig",
     "products.apps.ProductsConfig",
     "reviews.apps.ReviewsConfig",
+    "topics.apps.TopicsConfig"
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'fMarket.context_processors.seller_pk',
+                'fMarket.context_processors.seller_approved',
                 'fMarket.context_processors.account_complete',
                 'fMarket.context_processors.site_stats',
                 'fMarket.context_processors.user_wrote_review',
@@ -93,6 +95,12 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

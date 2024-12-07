@@ -4,8 +4,8 @@
 {% block content %}
     {% if object_list %}
         <h1>My Products</h1>
-        <a class="add-product-button" href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> New
-            Product</a>
+        <a class="add-product-button" href="{% url 'create-product' %}" title="">
+            <i class="fa-solid fa-plus"></i> New Product</a>
         <div class="table-wrapper">
             <table class="product-list-table">
                 <thead>
@@ -25,8 +25,8 @@
                 {% for prod in object_list %}
                     <tr>
                         <td><a href="{% url 'product-details' pk=prod.pk %}">{{ prod.name }}</a></td>
-                        <td><a target="_blank" href="{{ prod.photo.url }}"><img src="{{ prod.photo.url }}"
-                                                                                alt="{{ prod.name }}"></a></td>
+                        <td><a target="_blank" href="{{ prod.photo.url }}">
+                            <img src="{{ prod.photo.url }}" alt="{{ prod.name }}"></a></td>
                         <td>{{ prod.category }}</td>
                         <td>{{ prod.available_qty }} {{ prod.qty_units }}</td>
                         <td>{{ prod.min_order }} {{ prod.qty_units }}</td>

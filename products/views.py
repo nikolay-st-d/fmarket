@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse
 from django.views import generic as views
+
+from fMarket.mixins import SellerApprovedMixin
 from products.forms import ProductCreateForm
 from products.models import Product
 from sellers.models import Seller
@@ -14,7 +16,7 @@ class ProductsListView(views.ListView):
     paginate_by = 4
 
 
-class ProductCreateView(LoginRequiredMixin, views.CreateView):
+class ProductCreateView(LoginRequiredMixin, SellerApprovedMixin, views.CreateView):
     model = Product
     form_class = ProductCreateForm
     template_name = 'products/product-create.html'
@@ -45,15 +47,10 @@ class ProductDetailsView(views.DetailView):
         return context
 
 
-class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, views.UpdateView):
+class ProductUpdateView(LoginRequiredMixin, SellerApprovedMixin, views.UpdateView):
     model = Product
     form_class = ProductCreateForm
     template_name = 'products/product-update.html'
-
-    def test_func(self):
-        product = self.get_object()
-        seller = Seller.objects.get(account=self.request.user)
-        return product.seller == seller
 
     def get_success_url(self):
         messages.success(self.request, f'Product "{self.object.name}" updated successfully!')

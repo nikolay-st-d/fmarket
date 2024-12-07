@@ -17,6 +17,7 @@
     
     <h2>Latest Product Offers</h2>
     <section class="latest-products-wrapper">
+    {% if object_list is not None %}
         {% for product in object_list %}
             <div class="latest-product-box">
                 <div class="latest-product-img-wrapper">
@@ -28,6 +29,9 @@
                 <p>from {{ product.owner.profile.country }}</p>
             </div>
         {% endfor %}
+    {% else %}
+        <h3>No products listed</h3>
+    {% endif %}
     </section>
     
     <h2>How it works for buyers</h2>

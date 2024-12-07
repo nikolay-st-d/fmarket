@@ -18,6 +18,14 @@
 
         <div class="seller-details-right">
 
+            {% if object.account == user %}
+                {% if object.approved %}
+                    <p>Profile status: APPROVED <i class="fa-solid fa-user-check"></i></p>
+                {% else %}
+                    <p>Profile status: PENDING APPROVAL <i class="fa-solid fa-hourglass-half"></i></p>
+                {% endif %}
+            {% endif %}
+
             <p>Country: {{ object.account.profile.country }}</p>
             <p>City: {{ object.city }}</p>
             <p>Address: {{ object.address }}</p>

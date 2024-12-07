@@ -57,8 +57,9 @@
     {% endif %}
     {% if user.pk %}
         <a class="seller-button" href="{% url 'list-reviews' %}" title="">My Reviews</a>
-        <a class="seller-button" href="#" title="">Help</a>
     {% endif %}
+    <a href="{% url 'topics' %}" title="">Help</a>
+
 </nav>
 <main>
     {% if messages %}

@@ -100,10 +100,12 @@ class Product(models.Model):
         default=1,
     )
     payment = models.CharField(
+        max_length=30,
         choices=PaymentChoices.choices,
         default=PaymentChoices.PAYMENT_ON_DELIVERY,
     )
     delivery = models.CharField(
+        max_length=30,
         choices=DeliveryChoices.choices,
         default=DeliveryChoices.LOCAL_PICKUP,
     )

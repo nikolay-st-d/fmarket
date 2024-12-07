@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ object.title }}</h1>
+    <h2>{{ object.description }}</h2>
+    <p>{{ object.body|linebreaks }}</p>
+    <br>
+    <a href="{% url 'topics' %}"><i class="fa-solid fa-angles-left"></i> Back to Topics List</a>
+    {% if request.user.is_staff %}
+        <div class="topic-admin-actions">
+        <p>Admin Actions: </p>
+            <a href="{% url 'update-topic' pk=topic.pk %}" title="Update topic">
+                <i class="fa-solid fa-pen-to-square"></i></a>
+            <a href="{% url 'delete-topic' pk=topic.pk %}" title="Delete topic">
+                <i class="fa-solid fa-trash"></i></a>
+        </div>
+    {% endif %}
+
+{% endblock %}

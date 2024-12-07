@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Create a Topic</h1>
+    <section class="topics">
+    
+        <div class="form-container">
+            <form method="post">
+                {{ form }}
+                {% csrf_token %}
+                <button>Create Topic</button>
+            </form>
+        </div>
+
+    </section>
+
+{% endblock %}

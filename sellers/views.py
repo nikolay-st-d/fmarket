@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views
+
 from sellers.forms import SellerCreateForm, SellerUpdateForm
 from sellers.models import Seller
 
