@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-            <h1>Write a review for Product</h1>
+    
+    <h1>Write a review for Product</h1>
     <section class="product-details-section">
+    
         <div class="product-details-left">
-            <p><strong>{{ product_name }}</strong>, sold by <strong>{{ seller_name }}</strong> 
+            <p><strong>{{ product_name }}</strong>, sold by <strong>{{ seller_name }}</strong>
                 from <strong>{{ seller_country }}</strong></p>
             <img src="{{ product_image.url }}" alt="product_name">
         </div>
-        
-            <div class="form-container">
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button>Save Review</button>
-                </form>
-            </div>
-        
+
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button>Save Review</button>
+            </form>
+        </div>
+
     </section>
+    
 {% endblock %}

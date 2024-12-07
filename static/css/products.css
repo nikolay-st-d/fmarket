@@ -6,14 +6,16 @@
     justify-content: center;
     text-wrap: balance;
 }
-
+.table-wrapper {
+    overflow: auto;
+}
 .product-details-section {
     display: flex;
     flex-direction: column;
     gap: 3em;
     margin: 1em 0;
 }
-@media (min-width: 460px) {
+@media (min-width: 960px) {
     .product-details-section {
         flex-direction: row;
     }

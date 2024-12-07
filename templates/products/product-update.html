@@ -2,15 +2,19 @@
 {% load static %}
 
 {% block content %}
+   
     <h1>Update Product</h1>
-    <div class="image-420">
-        <img src="{{ object.photo.url }}" alt="{{ object.name }}"/>
-    </div>
-    <div class="form-container">
-        <form method="post" enctype="multipart/form-data">
-            {{ form }}
-            {% csrf_token %}
-            <button>Update Product</button>
-        </form>
-    </div>
+    <section class="product-details-section">
+        <div class="product-details-left">
+            <img src="{{ object.photo.url }}" alt="{{ object.name }}">
+            <p>{{ object.name }}</p>
+        </div>
+
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button>Update Product</button>
+            </form>
+        </div>
 {% endblock %}

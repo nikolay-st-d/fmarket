@@ -1,12 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Update Review</h1>
-    <div class="form-container">
-        <form method="post">
-            {% csrf_token %}
-            {{ form }}
-            <button>Save Changes</button>
-        </form>
-    </div>
+    <h1>Update review</h1>
+    <section class="product-details-section">
+        <div class="product-details-left">
+            <img src="{{ object.product.photo.url }}" alt="update product">
+            <p>{{ object.product.name }}</p>
+        </div>
+
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button>Save Changes</button>
+            </form>
+        </div>
+
+    </section>
 {% endblock %}

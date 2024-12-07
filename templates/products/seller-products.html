@@ -4,48 +4,52 @@
 {% block content %}
     {% if object_list %}
         <h1>My Products</h1>
-            <a class="add-product-button" href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> New Product</a>
-
-        <table class="product-list-table">
-            <thead>
-            <tr>
-                <td>Product Name</td>
-                <td>Photo</td>
-                <td>Category</td>
-                <td>Avail. Qty</td>
-                <td>Min. Order</td>
-                <td>Price €</td>
-                <td>Discount</td>
-                <td>Date Added</td>
-                <td>Actions</td>
-            </tr>
-            </thead>
-            <tbody>
-            {% for prod in object_list %}
+        <a class="add-product-button" href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> New
+            Product</a>
+        <div class="table-wrapper">
+            <table class="product-list-table">
+                <thead>
                 <tr>
-                    <td><a href="{% url 'product-details' pk=prod.pk %}">{{ prod.name }}</a></td>
-                    <td><a target="_blank" href="{{ prod.photo.url }}"><img src="{{ prod.photo.url }}" alt="{{ prod.name }}"></a></td>
-                    <td>{{ prod.category }}</td>
-                    <td>{{ prod.available_qty }} {{ prod.qty_units }}</td>
-                    <td>{{ prod.min_order }} {{ prod.qty_units }}</td>
-                    <td>{{ prod.price }}/{{ prod.qty_units }}</td>
-                    <td>{{ prod.discount }}%</td>
-                    <td>{{ prod.date_created }}</td>
-                    <td>
-                        <a href="{%  url 'product-update' pk=prod.pk %}" title="Update product details">
-                            <i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="{% url 'product-delete' pk=prod.pk %}" title="Delete product">
-                            <i class="fa-solid fa-trash"></i></a>
-                    </td>
+                    <td>Product Name</td>
+                    <td>Photo</td>
+                    <td>Category</td>
+                    <td>Avail. Qty</td>
+                    <td>Min. Order</td>
+                    <td>Price €</td>
+                    <td>Discount</td>
+                    <td>Date Added</td>
+                    <td>Actions</td>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for prod in object_list %}
+                    <tr>
+                        <td><a href="{% url 'product-details' pk=prod.pk %}">{{ prod.name }}</a></td>
+                        <td><a target="_blank" href="{{ prod.photo.url }}"><img src="{{ prod.photo.url }}"
+                                                                                alt="{{ prod.name }}"></a></td>
+                        <td>{{ prod.category }}</td>
+                        <td>{{ prod.available_qty }} {{ prod.qty_units }}</td>
+                        <td>{{ prod.min_order }} {{ prod.qty_units }}</td>
+                        <td>{{ prod.price }}/{{ prod.qty_units }}</td>
+                        <td>{{ prod.discount }}%</td>
+                        <td>{{ prod.date_created }}</td>
+                        <td>
+                            <a href="{% url 'product-update' pk=prod.pk %}" title="Update product details">
+                                <i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{% url 'product-delete' pk=prod.pk %}" title="Delete product">
+                                <i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
     {% else %}
         <p>No products listed.</p>
         <p>&nbsp;</p>
-        <a class="add-product-button" href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> Add Product</a>
+        <a class="add-product-button" href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> Add
+            Product</a>
     {% endif %}
 
     {% if page_obj.has_next or page_obj.has_previous %}

@@ -36,3 +36,7 @@ class Review(models.Model):
     date_created = models.DateField(
         auto_now_add=True,
     )
+
+    def __str__(self):
+        return f'{self.product} | {self.owner.profile}'
+
