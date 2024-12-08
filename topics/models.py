@@ -31,3 +31,6 @@ class Topic(models.Model):
         to=UserModel,
         on_delete=models.DO_NOTHING,
     )
+
+    def __str__(self):
+        return self.title
