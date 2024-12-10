@@ -14,14 +14,14 @@
 
 .how-it-works-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.6em;
     margin-bottom: 2em;
 }
 .how-it-works-block {
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 100%;
     flex-shrink: 2;
     padding: 0 1em 1em 1em;
     border-radius: 0.4em;
@@ -33,13 +33,27 @@
     font-weight: 700;
     margin-bottom: 0.4em;
 }
+@media (min-width: 800px) {
+    .how-it-works-wrapper {
+        flex-direction: row;
+    }
+    .how-it-works-block {
+        width: 25%;
+    }
+}
 .customers {
     background-color: #2e601e;
     background-image: linear-gradient(to right top, #05410b, #155c1b, #288836);
 }
+.customers h3 {
+    color: lightgreen;
+}
 .farmers {
     background-color: #7c490c;
     background-image: linear-gradient(to right top, #412403, #7c490c, #927e2d);
+}
+.farmers h3 {
+    color: #ffeeac;
 }
 .latest-products-wrapper {
     display: flex;

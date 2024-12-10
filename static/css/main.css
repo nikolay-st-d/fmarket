@@ -233,12 +233,7 @@ form .helptext {
 .account-links a {
     font-weight: normal;
 }
-.site-stats {
-    font-size: 0.8em;
-    width: 100%;
-    text-align: right;
-    color: white;
-}
+
 .image-420 {
     max-width: 420px;
     margin: 0 auto;

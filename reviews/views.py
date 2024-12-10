@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views import generic as views
 
@@ -21,8 +22,15 @@ class CreateReviewView(LoginRequiredMixin, views.CreateView):
     form_class = CreateReviewForm
     template_name = 'reviews/create-review.html'
 
+    def get_product_pk(self):
+        pk = self.request.GET.get('product')
+        if pk and pk.isdigit():
+            return pk
+        return 0
+
     def form_valid(self, form):
-        product = Product.objects.filter(pk=self.request.GET.get('product')).first()
+        pk = self.get_product_pk()
+        product = get_object_or_404(Product, pk=pk)
         form.instance.product = product
         form.instance.owner = self.request.user
         return super().form_valid(form)
@@ -32,7 +40,8 @@ class CreateReviewView(LoginRequiredMixin, views.CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        product = Product.objects.filter(pk=self.request.GET.get('product')).first()
+        pk = self.get_product_pk()
+        product = get_object_or_404(Product, pk=pk)
         context['product_name'] = product.name
         context['product_image'] = product.photo
         context['seller_name'] = product.seller.name

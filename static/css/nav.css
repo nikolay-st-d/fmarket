@@ -3,26 +3,44 @@ nav {
     font-size: 1.1em;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0.2em auto;
     min-height: 5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.2em;
+    justify-content: center;
+
 }
 
 nav a {
-    display: inline-block;
     padding: 0.3em 0.8em 0.2em 0.8em;
     text-decoration: none;
     letter-spacing: 0.05em;
     background-color: #204606;
-    border-top: 1px solid #204606;
     color: white;
-    border-bottom-left-radius: 0.6em;
-    border-bottom-right-radius: 0.6em;
+    border-top: 0;
+    border-radius: 0.6em;
     transition: 0.3s ease;
 }
+
 nav a:hover {
     border-top: 1px solid rgb(160, 252, 2);
     background-color: #3f930e;
 }
+
+@media (min-width: 800px) {
+    nav {
+        justify-content: flex-start;
+        margin: 0 auto;
+    }
+
+    nav a {
+        border-top: 1px solid #204606;
+        border-radius: 0 0 0.6em 0.6em;
+    }
+}
+
 .seller-button {
     background-color: rgb(57, 197, 0);
 }

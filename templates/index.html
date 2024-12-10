@@ -3,75 +3,82 @@
 {% block content %}
 
     <h1>European Farmer's Market</h1>
-    <h2>Pure and tasty farmer's food and other farm products from all across Europe.</h2>
-    <section class="headings">
-        <p>
-            <strong>CLIENTS:</strong> Browse the offers to find your favorite products. Offers from EU only, quality
-            guaranteed by our highly rated farmers.
-        </p>
-        <p>
-            <strong>FARMERS:</strong> Sell your products to connoisseurs in the EU. Gourmet restaurants and
-            smart people need your high quality products!
-        </p>
-    </section>
-    
-    <h2>Latest Product Offers</h2>
-    <section class="latest-products-wrapper">
-    {% if object_list is not None %}
-        {% for product in object_list %}
-            <div class="latest-product-box">
-                <div class="latest-product-img-wrapper">
-                    <a href="{% url 'product-details' pk=product.pk %}" title="{{ product.name }}">
-                        <img src="{{ product.photo.url }}" alt="{{ product.name }}"/>
-                    </a>
-                </div>
-                <h3>{{ product.name }}</h3>
-                <p>from {{ product.owner.profile.country }}</p>
-            </div>
-        {% endfor %}
+    {% if not user.is_authenticated %}
+        <h2>Pure and tasty farmer's food and other farm products from all across Europe.</h2>
+        <section class="headings">
+            <p>
+                <strong>CLIENTS:</strong> Browse the offers to find your favorite products. Offers from EU only, quality
+                guaranteed by our highly rated farmers.
+            </p>
+            <p>
+                <strong>FARMERS:</strong> Sell your products to connoisseurs in the EU. Gourmet restaurants and
+                smart people need your high quality products!
+            </p>
+        </section>
     {% else %}
-        <h3>No products listed</h3>
+        <h2>Welcome back, {{ user.profile }}</h2>
     {% endif %}
+
+    <h3>Latest Offers</h3>
+    <section class="latest-products-wrapper">
+        {% if object_list is not None %}
+            {% for product in object_list %}
+                <div class="latest-product-box">
+                    <div class="latest-product-img-wrapper">
+                        <a href="{% url 'product-details' pk=product.pk %}" title="{{ product.name }}">
+                            <img src="{{ product.photo.url }}" alt="{{ product.name }}"/>
+                        </a>
+                    </div>
+                    <h3>{{ product.name }}</h3>
+                    <p>from {{ product.owner.profile.country }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>No products listed</h3>
+        {% endif %}
     </section>
-    
-    <h2>How it works for buyers</h2>
-    <section class="how-it-works-wrapper">
-        <div class="how-it-works-block customers">
-            <h3>1. Browse Products</h3>
-            <p>You can browse all the products offered without registering an account.</p>
-        </div>
-        <div class="how-it-works-block customers">
-            <h3>2. Contact the Farmer</h3>
-            <p>To see the full farmer's profile and the contact options, you must be logged-in.</p>
-        </div>
-        <div class="how-it-works-block customers">
-            <h3>3. Make a Deal</h3>
-            <p>It's between you and the farmer to arrange the payment and the delivery details.</p>
-        </div>
-        <div class="how-it-works-block customers">
-            <h3>4. Leave a Review</h3>
-            <p>It's optional to write a review about a farmer, but we encourage you to make it.</p>
-        </div>
-    </section>
-    
-    <h2>How it works for farmers</h2>
-    <section class="how-it-works-wrapper">
-        <div class="how-it-works-block farmers">
-            <h3>1. Register</h3>
-            <p>You can browse all the products offered without registering an account.</p>
-        </div>
-        <div class="how-it-works-block farmers">
-            <h3>2. Apply for Seller</h3>
-            <p>To see the full farmer's profile and the contact options, you must be logged-in.</p>
-        </div>
-        <div class="how-it-works-block farmers">
-            <h3>3. Get Approved</h3>
-            <p>It's between you and the farmer to arrange the payment and the delivery details.</p>
-        </div>
-        <div class="how-it-works-block farmers">
-            <h3>4. Add Offers</h3>
-            <p>It's optional to write a review about a farmer, but we encourage you to make it.</p>
-        </div>
-    </section>
-    
+
+    {% if not user.is_authenticated %}
+
+        <h2>How it works for buyers</h2>
+        <section class="how-it-works-wrapper">
+            <div class="how-it-works-block customers">
+                <h3>1. Browse Products</h3>
+                <p>You can browse all the products offered without registering an account.</p>
+            </div>
+            <div class="how-it-works-block customers">
+                <h3>2. Contact the Farmer</h3>
+                <p>To see the full farmer's profile and the contact options, you must be logged-in.</p>
+            </div>
+            <div class="how-it-works-block customers">
+                <h3>3. Make a Deal</h3>
+                <p>It's between you and the farmer to arrange the payment and the delivery details.</p>
+            </div>
+            <div class="how-it-works-block customers">
+                <h3>4. Leave a Review</h3>
+                <p>It's optional to write a review about a farmer, but we encourage you to make it.</p>
+            </div>
+        </section>
+
+        <h2>How it works for farmers</h2>
+        <section class="how-it-works-wrapper">
+            <div class="how-it-works-block farmers">
+                <h3>1. Register</h3>
+                <p>This is the first required step to apply for a seller.</p>
+            </div>
+            <div class="how-it-works-block farmers">
+                <h3>2. Apply for Seller</h3>
+                <p>Complete your account, fill all your farmer data and wait to be approved.</p>
+            </div>
+            <div class="how-it-works-block farmers">
+                <h3>3. Get Approved</h3>
+                <p>An admin will check the info you've submitted and approve your application.</p>
+            </div>
+            <div class="how-it-works-block farmers">
+                <h3>4. Add Offers</h3>
+                <p>Go to MY PRODUCTS page and start adding product for sale.</p>
+            </div>
+        </section>
+    {% endif %}
+
 {% endblock %}

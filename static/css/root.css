@@ -44,19 +44,20 @@ h2 {
   margin-bottom: 0.4em;
 }
 h3 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 400;
   text-align: left;
   margin-top: 1em;
+  color: rgb(36, 105, 36);
 }
 h4 {
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 400;
   margin: 1em 0;
   color: rgb(49, 49, 49);
 }
 h5 {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 400;
   color: rgb(49, 49, 49);
   margin-top: 1.2em;
