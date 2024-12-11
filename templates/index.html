@@ -19,7 +19,7 @@
         <h2>Welcome back, {{ user.profile }}</h2>
     {% endif %}
 
-    <h3>Latest Offers</h3>
+    <h3>Most Popular Offers</h3>
     <section class="latest-products-wrapper">
         {% if object_list is not None %}
             {% for product in object_list %}
@@ -31,6 +31,7 @@
                     </div>
                     <h3>{{ product.name }}</h3>
                     <p>from {{ product.owner.profile.country }}</p>
+                    <p>{{ product.views_count }} views</p>
                 </div>
             {% endfor %}
         {% else %}

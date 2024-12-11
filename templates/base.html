@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
 </head>
 <body>
-<header style="background-image: url({% static 'img/header-bg.webp' %})">
+<header>
     <a href="{% url 'index' %}" title="Farmers Market - Farm Products Marketplace"
     ><img
             class="logo"
@@ -46,21 +46,23 @@
 
     </div>
 </header>
+
 <nav>
-    <a href='{% url 'index' %}' title='Farmers Market home'><i class="fa-solid fa-house-chimney"></i></a>
-
-    <a href='{% url 'products' %}' title='Products offered'>Products</a>
-    <a href='{% url 'sellers' %}' title='Registered Farmers'>Farmers</a>
-    <a href="{% url 'topics' %}" title="">Help</a>
-    {% if seller_pk %}
-        <a class="seller-button" href="{% url 'seller-details' pk=seller_pk %}" title="">My Profile</a>
-        <a class="seller-button" href="{% url 'seller-products' pk=seller_pk %}" title="">My Products</a>
-    {% endif %}
-    {% if user.pk %}
-        <a class="seller-button" href="{% url 'list-reviews' %}" title="">My Reviews</a>
-    {% endif %}
-
+    <div class="nav-wrapper">
+        <a href='{% url 'index' %}' title='Farmers Market home'><i class="fa-solid fa-house-chimney"></i></a>
+        <a href='{% url 'products' %}' title='Products offered'>Products</a>
+        <a href='{% url 'sellers' %}' title='Registered Farmers'>Farmers</a>
+        <a href="{% url 'topics' %}" title="">Help</a>
+        {% if seller_pk %}
+            <a class="seller-button" href="{% url 'seller-details' pk=seller_pk %}" title="">My Farmer Profile</a>
+            <a class="seller-button" href="{% url 'seller-products' pk=seller_pk %}" title="">My Products</a>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="seller-button" href="{% url 'list-reviews' %}" title="">My Reviews</a>
+        {% endif %}
+    </div>
 </nav>
+
 <main>
     {% if messages %}
         <div class="messages">
@@ -72,11 +74,13 @@
 
     {% block content %}
     {% endblock %}
-
 </main>
+
 <footer>
+    <a href="{% url 'terms' %}">Terms of Usage</a>
     <p>© 2024 The Farmer's Market Project</p>
     <p>website crafted by: Nikolay Dimitrov</p>
 </footer>
+
 </body>
 </html>

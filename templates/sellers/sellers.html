@@ -9,25 +9,26 @@
         <section class="sellers-section">
 
             {% for seller in object_list %}
+                {% if seller.approved %}
+                    <div class="seller-wrapper">
+                        {% if request.user.pk == seller.account.profile.pk %}
+                            <h4>{{ seller.name }} <i class="fa-solid fa-user"></i></h4>
+                        {% else %}
+                            <h4>{{ seller.name }}</h4>
+                        {% endif %}
 
-                <div class="seller-wrapper">
-                    {% if request.user.pk == seller.account.profile.pk %}
-                        <h4>{{ seller.name }} <i class="fa-solid fa-user"></i></h4>
-                    {% else %}
-                        <h4>{{ seller.name }}</h4>
-                    {% endif %}
-
-                    <a href="{% url 'seller-details' pk=seller.pk %}" title="Farmer: {{ seller.name }}">
-                        <div class="seller-img-wrapper">
-                            <img src="{{ seller.photo.url }}" alt="{{ object.name }}">
+                        <a href="{% url 'seller-details' pk=seller.pk %}" title="Farmer: {{ seller.name }}">
+                            <div class="seller-img-wrapper">
+                                <img src="{{ seller.photo.url }}" alt="{{ object.name }}">
+                            </div>
+                        </a>
+                        <div class="seller-details">
+                            <p>Country: {{ seller.account.profile.country }}</p>
+                            <p>Date Joined: {{ user.date_joined|date:"d M Y" }}</p>
+                            <p>Products offered: {{ seller.products.count }}</p>
                         </div>
-                    </a>
-                    <div class="seller-details">
-                        <p>Country: {{ seller.account.profile.country }}</p>
-                        <p>Date Joined: {{ user.date_joined|date:"d M Y" }}</p>
-                        <p>Products offered: {{ seller.products.count }}</p>
                     </div>
-                </div>
+                {% endif %}
 
             {% endfor %}
 

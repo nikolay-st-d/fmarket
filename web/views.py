@@ -8,5 +8,5 @@ class HomePageView(views.ListView):
     template_name = 'index.html'
 
     def get_queryset(self):
-        products = Product.objects.all().order_by('-id')[:self.HOME_PAGE_LATEST_PRODUCTS_NUMBER]
+        products = Product.objects.all().order_by('-views_count', '-id')[:self.HOME_PAGE_LATEST_PRODUCTS_NUMBER]
         return products

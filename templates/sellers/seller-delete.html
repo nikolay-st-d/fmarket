@@ -13,6 +13,7 @@
         <form method="post" enctype="multipart/form-data">
             {{ form }}
             {% csrf_token %}
+            <a id="cancel-button" href="{% url 'seller-details' pk=seller_pk %}">CANCEL</a>
             <button>Delete Seller Profile</button>
         </form>
     </div>

@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.db.models import F
 from django.urls import reverse
 from django.views import generic as views
 
@@ -12,7 +13,7 @@ from sellers.models import Seller
 class ProductsListView(views.ListView):
     model = Product
     template_name = 'products/products.html'
-    ordering = '-id'
+    ordering = ('-id',)
     paginate_by = 4
 
 
@@ -38,6 +39,7 @@ class ProductDetailsView(views.DetailView):
 
     def get(self, request, *args, **kwargs):
         product_obj = self.get_object()
+        Product.objects.filter(pk=product_obj.pk).update(views_count=F('views_count') + 1)
         request.product = product_obj
         return super().get(request, *args, **kwargs)
 

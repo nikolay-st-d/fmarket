@@ -1,12 +1,18 @@
 main {
     padding: 0.5em;
     max-width: 1200px;
-    min-height: 68vh;
+    min-height: 56vh;
     margin: 0 auto;
 }
 main p {
     max-width: 70ch;
   }
+
+@media (min-width: 800px) {
+  main {
+    min-height: 63vh;
+  }
+}
 .offers-section {
     margin-top: 1em;
     display: flex;
@@ -128,6 +134,10 @@ form .helptext {
     width: fit-content;
     max-width: 40em;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .form-container form {
     display: flex;
@@ -159,6 +169,23 @@ form .helptext {
     margin: 1em 0;
 }
 .form-container form button:hover {
+    background-color: #e1ffc2;
+}
+#cancel-button {
+    font-weight: 400;
+    display: block;
+    padding: 0.4em 0.9em;
+    border: 1px solid green;
+    border-radius: 0.4em;
+    outline: none;
+    width: fit-content;
+    color: green;
+    background-color: #f0ffe9;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin: 0.5em 0;
+}
+#cancel-button:hover {
     background-color: #e1ffc2;
 }
 .form-button-row {
@@ -209,7 +236,7 @@ form .helptext {
     color: green;
 }
 .warning {
-    width: 66ch;
+    max-width: 66ch;
     font-size: 1.2em;
     font-weight: 700;
     text-align: center;

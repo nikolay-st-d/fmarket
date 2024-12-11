@@ -6,20 +6,26 @@
     justify-content: center;
     text-wrap: balance;
 }
+
 .table-wrapper {
     overflow: auto;
 }
+
 .product-details-section {
     display: flex;
     flex-direction: column;
     gap: 3em;
     margin: 1em 0;
+    align-items: center;
 }
+
 @media (min-width: 960px) {
     .product-details-section {
         flex-direction: row;
+        align-items: flex-start;
     }
 }
+
 .product-details-left {
     max-width: 500px;
     display: flex;
@@ -62,12 +68,15 @@
     margin: 5px;
     text-align: center;
 }
+
 .product-list-table td:nth-child(1) {
     text-align: left;
 }
+
 .product-list-table td:nth-child(2) img {
     width: 60px;
 }
+
 .product-list-table td i {
     font-size: 1.1em;
 }
@@ -87,23 +96,27 @@
     background-color: #c4ffc4;
     color: black;
 }
+
 .add-product-button {
     display: block;
     width: fit-content;
     padding: 0.3em 0.6em;
 }
+
 .product-details-seller-actions {
     display: flex;
     flex-direction: row;
     gap: 1em;
     justify-content: center;
 }
+
 .reviews-container {
     margin: 2em 0;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
 }
+
 .reviews-header {
     display: flex;
     flex-direction: row;
@@ -111,9 +124,11 @@
     border-bottom: 1px solid lightgreen;
     color: darkgrey;
 }
+
 .reviews-container a {
     font-size: 0.9em;
 }
+
 .review-box {
     display: flex;
     flex-direction: column;
@@ -124,6 +139,7 @@
     border: 1px solid lightgray;
     border-radius: 0.4em;
 }
+
 .review-box-header {
     display: flex;
     flex-direction: row;
@@ -131,14 +147,17 @@
     border-bottom: 1px solid lightgray;
     color: #8f8f8f;
 }
+
 .review-box-links {
     display: flex;
     flex-direction: row;
     gap: 0.5em;
 }
+
 .review-box-links a {
     font-size: 0.9em;
 }
+
 .no-reviews {
     color: grey;
     font-size: 0.8em;

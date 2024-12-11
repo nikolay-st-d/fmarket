@@ -1,6 +1,6 @@
 header {
     width: 100%;
-    min-height: 10vh;
+    min-height: 20vh;
     padding: 1em;
     text-align: center;
     display: flex;
@@ -10,13 +10,14 @@ header {
     gap: 0.2em;
     flex-wrap: wrap;
     background-color: rgb(101, 139, 56);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 @media (min-width: 800px) {
     header {
+        background-image: url("/static/img/header-bg.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         flex-direction: row;
         gap: 2em;
         padding: 1em 3em;
@@ -36,6 +37,7 @@ header {
     align-items: center;
     gap: 0.5em;
 }
+
 @media (min-width: 800px) {
     .header-right {
         align-items: flex-end;
@@ -69,6 +71,7 @@ header {
     border-color: rgb(255, 140, 8);
     cursor: pointer;
 }
+
 .site-stats {
     font-size: 0.8em;
     width: 100%;

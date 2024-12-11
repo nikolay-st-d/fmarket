@@ -126,6 +126,10 @@ class Product(models.Model):
     date_created = models.DateField(
         auto_now_add=True,
     )
+    views_count = models.PositiveIntegerField(
+        default=0,
+        editable=False,
+    )
 
     def __str__(self):
         return self.name

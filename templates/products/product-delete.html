@@ -17,6 +17,7 @@
                 {% csrf_token %}
                 {{ form }}
                 <button>Yes, Delete Product!</button>
+                <a id="cancel-button" href="{% url 'seller-products' pk=seller_pk %}">CANCEL</a>
             </form>
         </div>
 {% endblock %}

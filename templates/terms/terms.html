@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Terms of Usage</h1>
+    <section class="terms">
+        {% for term in object_list %}
+            <h2>{{ term.title }}</h2>
+            <p>{{ term.content }}</p>
+        {% endfor %}
+    </section>
+
+{% endblock %}

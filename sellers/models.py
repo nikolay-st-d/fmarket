@@ -14,21 +14,28 @@ class Seller(models.Model):
         error_messages={
             'unique': _('Seller with this name already exists. Please choose another name!'),
         },
+        help_text='Farm or farmer name. ',
     )
-    description = models.TextField()
+    description = models.TextField(
+        help_text='A brief farm description and you as a farmer.',
+    )
     city = models.CharField(
         max_length=40,
+        help_text='City or village name the farm is allocated near.',
     )
     address = models.CharField(
         max_length=50,
+        help_text='Address of the farm.',
     )
     photo = models.ImageField(
         upload_to='sellers/',
         validators=(image_size_validator,),
+        help_text='Photo of yourself.',
     )
     website_url = models.URLField(
         null=True,
         blank=True,
+        help_text='Optional. Website URL including https prefix.',
     )
     approved = models.BooleanField(
         default=False

@@ -16,6 +16,7 @@
                 {% csrf_token %}
                 {{ form }}
                 <button>DELETE REVIEW</button>
+                <a id="cancel-button" href="{% url 'list-reviews' %}">CANCEL</a>
             </form>
         </div>
 

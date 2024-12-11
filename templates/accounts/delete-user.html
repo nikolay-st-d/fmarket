@@ -10,7 +10,8 @@
         <form method="post">
             {{ form }}
             {% csrf_token %}
-                <button>DELETE ACCOUNT</button>
+            <a id="cancel-button" href="{% url 'edit-user' pk=user.pk %}">CANCEL</a>
+            <button>DELETE ACCOUNT</button>
         </form>
     </div>
 {% endblock %}

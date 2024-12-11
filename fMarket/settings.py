@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "sellers.apps.SellersConfig",
     "products.apps.ProductsConfig",
     "reviews.apps.ReviewsConfig",
-    "topics.apps.TopicsConfig"
+    "topics.apps.TopicsConfig",
+    "terms.apps.TermsConfig"
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,12 @@ LOGIN_REDIRECT_URL = 'index'
 
 # Dev test email backend, outputs messages to the console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# SMTP for testing
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT')
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
