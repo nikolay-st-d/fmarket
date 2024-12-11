@@ -3,7 +3,7 @@ footer {
     text-align: center;
     color: rgb(163, 204, 167);
     background-color: rgb(32, 61, 42);
-    padding: 0.6em 0.2em;
+    padding: 0.8em 0.2em;
     width: 100%;
     min-height: auto;
 }
@@ -19,9 +19,19 @@ footer p:last-of-type {
     min-height: 8vh;
   }
 }
-footer a {
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-bottom: 0.2em;
+}
+.footer-links a {
     display: block;
-    color: wheat;
+    font-size:0.9em;
+    color: #dff5b3;
     text-decoration: none;
-    margin-bottom: 0.5em;
+}
+.footer-links a:hover {
+    color: #ffffff;
 }

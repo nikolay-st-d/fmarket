@@ -6,7 +6,9 @@
     <section class="terms">
         {% for term in object_list %}
             <h2>{{ term.title }}</h2>
-            <p>{{ term.content }}</p>
+            <details>
+                <p>{{ term.content }}</p>
+            </details>
         {% endfor %}
     </section>
 
