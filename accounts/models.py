@@ -32,6 +32,12 @@ class AccountUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     objects = AccountUserManager()
 
+    def save(self, *args, **kwargs):
+        is_new_user = self.pk is None
+        super().save(*args, **kwargs)
+        if is_new_user:
+            Profile.objects.create(user=self)
+
 
 class Profile(models.Model):
     class EUCountries(models.TextChoices):

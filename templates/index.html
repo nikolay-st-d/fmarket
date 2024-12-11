@@ -16,12 +16,16 @@
             </p>
         </section>
     {% else %}
-        <h2>Welcome back, {{ user.profile }}</h2>
+        {% if account_complete %}
+            <h2>Welcome back, {{ user.profile }}</h2>
+        {% else %}
+            <h2>Welcome back, {{ user }}</h2>
+        {% endif %}
     {% endif %}
 
     <h3>Most Popular Offers</h3>
     <section class="latest-products-wrapper">
-        {% if object_list is not None %}
+        {% if object_list %}
             {% for product in object_list %}
                 <div class="latest-product-box">
                     <div class="latest-product-img-wrapper">
@@ -35,7 +39,7 @@
                 </div>
             {% endfor %}
         {% else %}
-            <h3>No products listed</h3>
+            <p>No products listed</p>
         {% endif %}
     </section>
 

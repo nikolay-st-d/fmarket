@@ -2,10 +2,17 @@
 {% load static %}
 
 {% block content %}
-    {% if object_list %}
-        <h1>My Products</h1>
+
+    <h1>My Products</h1>
+    {% if seller_approved %}
         <a class="add-product-button" href="{% url 'create-product' %}" title="">
             <i class="fa-solid fa-plus"></i> New Product</a>
+    {% else %}
+        <p>Your seller application is still not approved.</p>
+    {% endif %}
+
+    {% if object_list %}
+        
         <div class="table-wrapper">
             <table class="product-list-table">
                 <thead>
@@ -47,9 +54,6 @@
 
     {% else %}
         <p>No products listed.</p>
-        <p>&nbsp;</p>
-        <a class="add-product-button" href="{% url 'create-product' %}" title=""><i class="fa-solid fa-plus"></i> Add
-            Product</a>
     {% endif %}
 
     {% if page_obj.has_next or page_obj.has_previous %}
