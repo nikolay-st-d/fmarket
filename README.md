@@ -21,7 +21,7 @@ seller2@mail.bg –  approved seller with products uploaded
 seller3@mail.bg – seller that is pending approval
 
 You must add an .env file on the root of the project. You can copy the .env file content from this document:
-https://docs.google.com/document/d/1cj4ZSzFL3viT4Vx\_ib7QPbKbTkRuos-cLB6RCxSEZUA/edit?usp=sharing
+https://docs.google.com/document/d/1cj4ZSzFL3viT4Vx_ib7QPbKbTkRuos-cLB6RCxSEZUA/edit?usp=sharing
 
 All the credentials in the file are not and will not be used in production, sothere is no a problem to expose them here for a couple of days. The file will be deleted right after the end of the exam.
 # **User Roles**
