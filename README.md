@@ -84,11 +84,17 @@ Contact page to contact a website admin via email using a form.
 
 # **Technologies used:**
 Django 5.1.4
+
 Python 3.12
+
 PostgreSQL
+
 Django ORM
+
 HTML5
+
 CSS3
+
 Git
 
 # **Screenshots**
