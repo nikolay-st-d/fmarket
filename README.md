@@ -23,10 +23,13 @@ https://docs.google.com/document/d/1cj4ZSzFL3viT4Vx_ib7QPbKbTkRuos-cLB6RCxSEZUA/
 
 You can use the following test profile credentials to test the website functions, **all the test users have currently the same password: ‘qwer’**(for easier testing):
 
-*super@mail.bg – superuser
-user@mail.bg – user with completed account that is not a seller 
-seller1@mail.bg – approved seller with products uploaded, also a Site admin (is\_staff=True)
-seller2@mail.bg –  approved seller with products uploaded*
+*super@mail.bg – superuser*
+
+*user@mail.bg – user with completed account that is not a seller *
+
+*seller1@mail.bg – approved seller with products uploaded, also a Site admin (is\_staff=True)*
+
+*seller2@mail.bg –  approved seller with products uploaded*
 
 *seller3@mail.bg – seller that is pending approval*
 
