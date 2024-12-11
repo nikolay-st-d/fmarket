@@ -2,18 +2,22 @@
 
 {% block content %}
     <h1>My Reviews</h1>
-    <section class="user-reviews-wrapper">
-        {% for review in object_list %}
-            <div class="user-review">
-                <a href="{% url 'product-details' pk=review.product.pk %}" title="{{ review.product }}">
-                    <img src="{{ review.product.photo.url }}" alt="review.product.name">
-                </a>
-                <p>{{ review.product.name }}</p>
-                <p>Rating: {{ review.rating }}</p>
-                <p>{{ review.text }}</p>
-            </div>
-        {% endfor %}
-    </section>
+    {% if object_list %}
+        <section class="user-reviews-wrapper">
+            {% for review in object_list %}
+                <div class="user-review">
+                    <a href="{% url 'product-details' pk=review.product.pk %}" title="{{ review.product }}">
+                        <img src="{{ review.product.photo.url }}" alt="review.product.name">
+                    </a>
+                    <p>{{ review.product.name }}</p>
+                    <p>Rating: {{ review.rating }}</p>
+                    <p>{{ review.text }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    {% else %}
+        <p>You did not wrote any reviews.</p>
+    {% endif %}
 
     <div class="pagination">
                 <span class="step-links">
@@ -21,9 +25,9 @@
                         <a href="?page=1">&laquo; first</a>
                         <a href="?page={{ page_obj.previous_page_number }}">previous</a>
                     {% endif %}
-                
+
                     {% if page_obj.paginator.num_pages > 1 %}
-                    <span class="current">
+                        <span class="current">
                         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                     </span>
                     {% endif %}

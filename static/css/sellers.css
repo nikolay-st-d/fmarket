@@ -86,9 +86,15 @@
 
 .seller-details-section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 3em;
     margin: 1em 0;
+}
+@media (min-width: 960px) {
+    .seller-details-section {
+        flex-direction: row;
+        align-items: flex-start;
+    }
 }
 .seller-details-left {
     max-width: 500px;
