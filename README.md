@@ -1,5 +1,5 @@
 # **Farmers Market (fMarket) Project**
----------------------------------------
+
 
 # **Foreword**
 FMarket is a Django project, created for the final exam of the SoftUni Python Web course. Since it is  created for educational purposes, it does not have full functionality required for a real application.
