@@ -25,7 +25,7 @@ You can use the following test profile credentials to test the website functions
 
 *super@mail.bg – superuser*
 
-*user@mail.bg – user with completed account that is not a seller *
+*user@mail.bg – user with completed account that is not a seller*
 
 *seller1@mail.bg – approved seller with products uploaded, also a Site admin (is\_staff=True)*
 
