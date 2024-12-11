@@ -17,7 +17,7 @@ The app has also a Help section and a Terms of Usage section, publicly visible.
 The project is not deployed and could be run only locally. To run the project, after you’ve cloned the repo, you have to create a virtual environment and install the requirements using the requirements.txt file (pip install -r requirements.txt ).
 
 You must add an .env file on the root of the project. You can copy the .env file content from this document:
-https://docs.google.com/document/d/1cj4ZSzFL3viT4Vx\_ib7QPbKbTkRuos-cLB6RCxSEZUA/edit?usp=sharing
+https://docs.google.com/document/d/1cj4ZSzFL3viT4Vx_ib7QPbKbTkRuos-cLB6RCxSEZUA/edit?usp=sharing
 
 *The credentials in the above file are not and will not be used in production, so there is no a problem to expose them here for a couple of days. The file will be deleted right after the end of the exam.*
 
