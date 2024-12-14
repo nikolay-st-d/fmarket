@@ -22,18 +22,26 @@ You must add an .env file in the root of the project and setup your own credenti
 Here is a list of the credentials you will need to run the project:
 SECRET_KEY=some-secret-key
 
-# Postgres
+Postgres
 DB_NAME=database-name
+
 DB_USER=database-user
+
 DB_PASSWORD=database-password
+
 DB_HOST=localhost
+
 DB_PORT=5432
 
 #SMTP
 EMAIL_HOST=host-name
+
 EMAIL_PORT=port
+
 EMAIL_USE_TLS=True-or-False
+
 EMAIL_HOST_USER=username
+
 EMAIL_HOST_PASSWORD=password
 
 # **User Roles**
