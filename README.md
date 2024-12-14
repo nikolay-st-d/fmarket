@@ -17,22 +17,24 @@ The app has also a Help section and a Terms of Usage section, publicly visible.
 # **Run the project**
 The project is not deployed and could be run only locally. To run the project, after you’ve cloned the repo, you have to create a virtual environment and install the requirements using the requirements.txt file (pip install -r requirements.txt ).
 
-You must add an .env file on the root of the project. You can copy the .env file content from this document:
-https://docs.google.com/document/d/1cj4ZSzFL3viT4Vx_ib7QPbKbTkRuos-cLB6RCxSEZUA/edit?usp=sharing
+You must add an .env file in the root of the project and setup your own credentials. The project uses the python-decouple library to hide the project crenttials.
 
-*The credentials in the above file are not and will not be used in production, so there is no a problem to expose them here for a couple of days. The file will be deleted right after the end of the exam.*
+Here is a list of the credentials you will need to run the project:
+SECRET_KEY=some-secret-key
 
-You can use the following test profile credentials to test the website functions, **all the test users have currently the same password: ‘qwer’**(for easier testing):
+# Postgres
+DB_NAME=database-name
+DB_USER=database-user
+DB_PASSWORD=database-password
+DB_HOST=localhost
+DB_PORT=5432
 
-*super@mail.bg – superuser*
-
-*user@mail.bg – user with completed account that is not a seller*
-
-*seller1@mail.bg – approved seller with products uploaded, also a Site admin (is\_staff=True)*
-
-*seller2@mail.bg –  approved seller with products uploaded*
-
-*seller3@mail.bg – seller that is pending approval*
+#SMTP
+EMAIL_HOST=host-name
+EMAIL_PORT=port
+EMAIL_USE_TLS=True-or-False
+EMAIL_HOST_USER=username
+EMAIL_HOST_PASSWORD=password
 
 # **User Roles**
 ### **Regulat (Unauthenticated) users**
