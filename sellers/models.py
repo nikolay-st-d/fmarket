@@ -1,4 +1,6 @@
 import os
+
+from django.core.validators import MinLengthValidator
 from django.db import models
 from django.utils.text import slugify
 from accounts.models import AccountUser
@@ -10,6 +12,9 @@ from fMarket.validators import image_size_validator
 class Seller(models.Model):
     name = models.CharField(
         max_length=30,
+        validators=[
+            MinLengthValidator(5),
+        ],
         unique=True,
         error_messages={
             'unique': _('Seller with this name already exists. Please choose another name!'),
@@ -18,6 +23,9 @@ class Seller(models.Model):
     )
     description = models.TextField(
         help_text='A brief farm description and you as a farmer.',
+        validators=[
+            MinLengthValidator(20),
+        ],
     )
     city = models.CharField(
         max_length=40,
